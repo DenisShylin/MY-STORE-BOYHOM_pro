@@ -1,0 +1,8 @@
+@import './project/css/normalize.css';
+@import './project/css/styles.css';
+@import './project/css/media.css';
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
