@@ -10,9 +10,9 @@ const Products = () => {
       date: "21 Aug 2024",
       text: "Regarding shipping, everything great and in time even arrived a few days before. Regarding the video console, incredible. its going great. I only recommend changing the SD you bring.",
       images: [
-        "/src/assets/img/hero/hero_1x_jpeg.jpg",
+        "/src/assets/img/reviews/review1-1.jpg",
         "/src/assets/img/reviews/review1-2.jpg",
-        "/src/assets/img/reviews/review1-3.jpg",
+        "/src/assets/img/reviews/review1-2.jpg",
       ],
       helpful: 0,
     },

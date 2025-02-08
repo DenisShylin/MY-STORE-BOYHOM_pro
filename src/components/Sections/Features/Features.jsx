@@ -47,7 +47,7 @@ const Features = () => {
         <div className="features__image">
           <div className="features__image-wrapper">
             <img
-              src="/src/assets/img/Features/R36S_8_1x.jpeg"
+              src="/src/assets/img/features/about_2x.jpg"
               alt="R36S Gaming Console"
               className="features__console-img"
               width="600"

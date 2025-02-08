@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import heroImage1x from "../../../assets/img/hero/hero_2x_jpeg.jpg";
-import heroImage2x from "../../../assets/img/hero/hero_2x_jpeg.jpg";
+import heroImage1x from "../../../assets/img/hero/ima_1x.png";
+import heroImage2x from "../../../assets/img/hero/ima_2x.png";
 import "./Hero.css";
 
 const Hero = () => {
@@ -38,30 +38,6 @@ const Hero = () => {
       </div>
 
       <div className="hero__container">
-        <div className="hero__content" ref={titleRef}>
-          <span className="hero__label">ИГРОВАЯ КОНСОЛЬ R36S</span>
-          <h1 className="hero__title">
-            <span className="hero__title-line">ОЖИВИТЕ</span>
-            <span className="hero__title-line">КЛАССИЧЕСКИЕ</span>
-            <span className="hero__title-line">ИГРОВЫЕ МОМЕНТЫ</span>
-          </h1>
-          <div className="hero__buttons">
-            <button
-              className="hero__button hero__button--primary"
-              onClick={handleBuyClick}
-            >
-              Купить сейчас
-              <span className="hero__button-shine"></span>
-            </button>
-            <a
-              href="#features"
-              className="hero__button hero__button--secondary"
-            >
-              Узнать больше
-            </a>
-          </div>
-        </div>
-
         <div className="hero__image">
           <div className="hero__image-wrapper">
             <div className="hero__image-glow"></div>
@@ -80,6 +56,47 @@ const Hero = () => {
                 loading="eager"
               />
             </picture>
+          </div>
+        </div>
+
+        <div className="hero__content" ref={titleRef}>
+          <span className="hero__label">BOYHOM R36S</span>
+          <h1 className="hero__title">
+            <span className="hero__title-line">Игровая ретро </span>
+            <span className="hero__title-line">консоль R36S</span>
+          </h1>
+          <p className="hero__description">
+            Откройте для себя мир ретро-гейминга с портативной консолью BOYHOM
+            R36S. 15 000+ классических игр, мощный процессор и яркий IPS экран –
+            все для незабываемых игровых приключений!
+          </p>
+
+          <div className="hero__pricing">
+            <div className="hero__price-wrapper">
+              <span className="hero__original-price">4,485.21 грн</span>
+              <span className="hero__current-price">
+                1,472.53
+                <span style={{ fontSize: "24px" }}>грн</span>
+              </span>
+            </div>
+            <span className="hero__discount-badge">-70%</span>
+          </div>
+
+          <div className="hero__buttons">
+            <button
+              className="hero__button hero__button--primary"
+              onClick={handleBuyClick}
+            >
+              <span className="hero__button-pulse"></span>
+              <span className="hero__button-text">Купить со скидкой</span>
+              <span className="hero__button-shine"></span>
+            </button>
+            <a
+              href="#features"
+              className="hero__button hero__button--secondary"
+            >
+              Подробнее
+            </a>
           </div>
         </div>
       </div>
