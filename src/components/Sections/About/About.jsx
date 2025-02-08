@@ -1,59 +1,127 @@
 import "./About.css";
 
-import R36S1x from "../../../assets/img/abaut/R36S_8_1x.jpeg";
-import R36S2x from "../../../assets/img/abaut/R36S_8_2x.jpeg";
-import Boy1x from "../../../assets/img/abaut/boy17_4_1x.jpeg";
-import Boy2x from "../../../assets/img/abaut/boy17_4_2x.jpeg";
-import X61x from "../../../assets/img/abaut/x6_6_1x.jpeg";
-import X62x from "../../../assets/img/abaut/x6_6_2x.jpeg";
+const IconGamepad = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="6" y1="12" x2="10" y2="12"></line>
+    <line x1="8" y1="10" x2="8" y2="14"></line>
+    <line x1="15" y1="13" x2="15.01" y2="13"></line>
+    <line x1="18" y1="11" x2="18.01" y2="11"></line>
+    <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+  </svg>
+);
 
-const PRODUCTS = [
-  {
-    regular: R36S1x,
-    retina: R36S2x,
-    alt: "TV Gaming Console",
-  },
-  {
-    regular: Boy1x,
-    retina: Boy2x,
-    alt: "Portable Gaming Console",
-  },
-  {
-    regular: X61x,
-    retina: X62x,
-    alt: "Game Controller",
-  },
-];
+const IconMonitor = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+    <line x1="8" y1="21" x2="16" y2="21"></line>
+    <line x1="12" y1="17" x2="12" y2="21"></line>
+  </svg>
+);
+
+const IconBattery = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="7" width="16" height="10" rx="2" ry="2"></rect>
+    <line x1="22" y1="11" x2="22" y2="13"></line>
+    <line x1="6" y1="11" x2="6" y2="13"></line>
+    <line x1="10" y1="11" x2="10" y2="13"></line>
+    <line x1="14" y1="11" x2="14" y2="13"></line>
+  </svg>
+);
+
+const IconShield = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+  </svg>
+);
 
 const About = () => {
+  const features = [
+    {
+      icon: <IconGamepad />,
+      title: "Обширная коллекция ретро-игр",
+      description:
+        "Погрузитесь в ретро-игры с портативной игровой консолью r36s",
+    },
+    {
+      icon: <IconMonitor />,
+      title: "Яркие технологии отображения",
+      description:
+        "Наслаждайтесь яркими играми на 3,5-дюймовом ЖК-дисплее с четким разрешением 640x480 для захватывающего и плавного игрового процесса.",
+    },
+    {
+      icon: <IconBattery />,
+      title: "Максимальная портативность",
+      description:
+        "Портативная, легкая портативная консоль со съемным аккумулятором для игр на ходу.",
+    },
+    {
+      icon: <IconShield />,
+      title: "Надежность и безопасность",
+      description:
+        "Играйте безопасно и комфортно с сертифицированной аккумуляторной системой.",
+    },
+  ];
+
   return (
-    <section id="about" className="about" aria-label="О наших продуктах">
-      <div className="about-container">
-        <div className="about-header">
-          <h2 className="about-title">Наші Продукти</h2>
-          <p className="about-subtitle">
-            BOYHOM – це світ захоплюючих ігор для всієї родини! Оберіть свою
-            ідеальну консоль
-          </p>
+    <section className="about" id="about">
+      <div className="about__container">
+        <div className="about__header">
+          <h2 className="about__title">
+            ИГРАЙТЕ.
+            <br />
+            ОБЩАЙТЕСЬ.
+            <br />
+            ОЖИВИТЕ.
+          </h2>
         </div>
 
-        <div className="products-grid">
-          {PRODUCTS.map((product, index) => (
-            <div key={index} className="product-card">
-              <div className="product-image-container">
-                <picture>
-                  <source
-                    srcSet={product.retina}
-                    media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
-                    type="image/jpeg"
-                  />
-                  <img
-                    src={product.regular}
-                    alt={product.alt}
-                    loading="lazy"
-                    className="product-image"
-                  />
-                </picture>
+        <div className="about__cards">
+          {features.map((feature, index) => (
+            <div className="about-card" key={index}>
+              <div className="about-card__content">
+                <div className="about-card__icon-wrapper">{feature.icon}</div>
+                <h3 className="about-card__title">{feature.title}</h3>
+                <p className="about-card__description">{feature.description}</p>
               </div>
             </div>
           ))}
