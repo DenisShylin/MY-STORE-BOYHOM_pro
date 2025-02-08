@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import heroImage1x from "../../../assets/img/hero/hero_1x_jpeg.jpg";
+import heroImage1x from "../../../assets/img/hero/hero_2x_jpeg.jpg";
 import heroImage2x from "../../../assets/img/hero/hero_2x_jpeg.jpg";
 import "./Hero.css";
 

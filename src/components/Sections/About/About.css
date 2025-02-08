@@ -1,10 +1,8 @@
 .about {
-    background-color: #1f1f1f;
+    background-color: #0F172A;
+    background-image: radial-gradient(at 50% 50%, rgba(37, 99, 235, 0.1) 0px, transparent 50%);
     color: #fff;
-    padding: 100px 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    padding: 120px 0;
 }
 
 .about__container {
@@ -18,68 +16,106 @@
     margin-bottom: 80px;
 }
 
+.about__labels {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.about__label {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background: rgba(37, 99, 235, 0.1);
+    color: #60A5FA;
+}
+
+.about__label--outline {
+    background: transparent;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
 .about__title {
     font-size: 48px;
     font-weight: 700;
     line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, #fff 0%, #a8a8a8 100%);
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff 0%, #94A3B8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
+}
+
+.about__subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #94A3B8;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .about__cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .about-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.about-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+            rgba(37, 99, 235, 0.06),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.about-card:hover::before {
+    opacity: 1;
 }
 
 .about-card__content {
-    padding: 30px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 40px 30px;
+    position: relative;
+    z-index: 1;
 }
 
 .about-card__icon-wrapper {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     transition: all 0.3s ease;
 }
 
 .about-card:hover .about-card__icon-wrapper {
-    background: rgba(255, 255, 255, 0.15);
     transform: scale(1.1);
+    background: rgba(37, 99, 235, 0.2);
 }
 
 .about-card__icon {
-    color: #fff;
-    transition: all 0.3s ease;
+    color: #60A5FA;
+    transition: transform 0.3s ease;
 }
 
 .about-card:hover .about-card__icon {
@@ -89,25 +125,63 @@
 .about-card__title {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     color: #fff;
 }
 
 .about-card__description {
     font-size: 16px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 0;
+    color: #94A3B8;
+    margin-bottom: 24px;
 }
 
-/* Медиа запросы для адаптивности */
+.about-card__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.about-card__number {
+    font-size: 36px;
+    font-weight: 700;
+    color: #60A5FA;
+    line-height: 1;
+}
+
+.about-card__detail {
+    font-size: 14px;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hover эффект для карточек */
+.about-card {
+    transform: translateY(0);
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow:
+        0 4px 24px -4px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(37, 99, 235, 0.1);
+}
+
+/* Медиа запросы */
 @media (max-width: 768px) {
     .about {
-        padding: 60px 0;
+        padding: 80px 0;
     }
 
     .about__title {
         font-size: 36px;
+    }
+
+    .about__subtitle {
+        font-size: 16px;
     }
 
     .about__cards {
@@ -122,14 +196,6 @@
     }
 
     .about-card__content {
-        padding: 20px;
-    }
-
-    .about-card__title {
-        font-size: 18px;
-    }
-
-    .about-card__description {
-        font-size: 14px;
+        padding: 30px 20px;
     }
 }

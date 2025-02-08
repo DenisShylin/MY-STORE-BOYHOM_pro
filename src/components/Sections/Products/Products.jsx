@@ -1,167 +1,132 @@
-// src/components/Products/Products.jsx
-import { useEffect, useState } from "react";
 import "./Products.css";
 
 const Products = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("portable");
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [activeImage, setActiveImage] = useState(0);
-
-  const categories = {
-    portable: {
-      id: "portable",
-      title: "Портативні консолі",
-      products: [
-        {
-          id: "p1",
-          name: "Nintendo Switch OLED",
-          price: "14999",
-          description: "Нова версія з OLED екраном",
-          images: ["switch1.jpg", "switch2.jpg", "switch3.jpg", "switch4.jpg"],
-        },
-        // Додайте інші продукти
+  const reviews = [
+    {
+      id: 1,
+      rating: 5,
+      color: "Purple 64GB",
+      author: "AliExpress Shopper",
+      date: "21 Aug 2024",
+      text: "Regarding shipping, everything great and in time even arrived a few days before. Regarding the video console, incredible. its going great. I only recommend changing the SD you bring.",
+      images: [
+        "/src/assets/img/hero/hero_1x_jpeg.jpg",
+        "/src/assets/img/reviews/review1-2.jpg",
+        "/src/assets/img/reviews/review1-3.jpg",
       ],
+      helpful: 0,
     },
-    tv: {
-      id: "tv",
-      title: "Консолі для TV",
-      products: [
-        {
-          id: "t1",
-          name: "PlayStation 5",
-          price: "24999",
-          description: "Найпотужніша консоль нового покоління",
-          images: ["ps5-1.jpg", "ps5-2.jpg", "ps5-3.jpg", "ps5-4.jpg"],
-        },
-        // Додайте інші продукти
+    {
+      id: 2,
+      rating: 5,
+      color: "Orange 64G",
+      author: "V***h",
+      date: "26 Aug 2024",
+      text: "For their own pennies (and then more according to the excise tax)a topper, for nostalguvati, or just a Mati, I will kill a lot of people on bagatoh platforms. The city cable does not use the vikidati-i can do it like that, if we do it at home, the console will charge it through it.",
+      images: [
+        "/src/assets/img/reviews/review2-1.jpg",
+        "/src/assets/img/reviews/review2-2.jpg",
       ],
+      helpful: 1,
     },
-    controllers: {
-      id: "controllers",
-      title: "Контролери",
-      products: [
-        {
-          id: "c1",
-          name: "DualSense",
-          price: "2999",
-          description: "Бездротовий контролер для PS5",
-          images: ["dualsense1.jpg", "dualsense2.jpg", "dualsense3.jpg"],
-        },
-        // Додайте інші продукти
+    {
+      id: 3,
+      rating: 5,
+      color: "White 64GB",
+      author: "M***z",
+      date: "22 Aug 2024",
+      text: "Pretty good in my opinion, its operating system is pretty well optimized. The catalog of games is extensive and well stocked. I would have liked them to add games such as Resident Evil or Silent Hill, even so I have the possibility to add it thanks to the expansion port MicroSD. Highly recommended 10/10",
+      images: [
+        "/src/assets/img/reviews/review3-1.jpg",
+        "/src/assets/img/reviews/review3-2.jpg",
+        "/src/assets/img/reviews/review3-3.jpg",
       ],
+      helpful: 4,
     },
-  };
+  ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById("products");
-      if (element) {
-        const position = element.getBoundingClientRect();
-        if (position.top < window.innerHeight * 0.75) {
-          setIsVisible(true);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-    setActiveImage(0);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedProduct(null);
-    setActiveImage(0);
+  const handleReviewClick = () => {
+    window.open(
+      "https://www.aliexpress.com/item/1005007226123844.html#feedback",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
-    <section id="products" className="products">
-      <div className="container mx-auto px-4">
-        <h2 className={`products-title ${isVisible ? "fade-in-up" : ""}`}>
-          Наші продукти
-        </h2>
-
-        <div className="products-categories">
-          {Object.values(categories).map((category) => (
-            <button
-              key={category.id}
-              className={`category-button ${
-                activeCategory === category.id ? "active" : ""
-              }`}
-              onClick={() => setActiveCategory(category.id)}
-            >
-              {category.title}
-            </button>
-          ))}
+    <section className="products" id="products">
+      <div className="products__container">
+        <div className="products__header">
+          <div className="products__labels">
+            <span className="products__label">Отзывы</span>
+            <span className="products__label products__label--outline">
+              R36S
+            </span>
+          </div>
+          <h2 className="products__title">Что говорят наши клиенты</h2>
+          <p className="products__description">
+            Реальные отзывы покупателей о консоли R36S с AliExpress. Узнайте,
+            почему тысячи геймеров выбирают нашу консоль.
+          </p>
         </div>
 
-        <div className="products-grid">
-          {categories[activeCategory].products.map((product, index) => (
+        <div className="products__reviews">
+          {reviews.map((review) => (
             <div
-              key={product.id}
-              className={`product-card ${isVisible ? "fade-in" : ""}`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-              onClick={() => handleProductClick(product)}
+              key={review.id}
+              className="review-card"
+              onClick={handleReviewClick}
             >
-              <div className="product-image">
-                <img
-                  src={`../../assets/img/products/${product.images[0]}`}
-                  alt={product.name}
-                />
+              <div className="review-card__header">
+                <div className="review-card__rating">
+                  {[...Array(5)].map((_, index) => (
+                    <svg
+                      key={index}
+                      className="review-card__star"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill={index < review.rating ? "currentColor" : "none"}
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="review-card__color">{review.color}</span>
               </div>
-              <h3 className="product-name">{product.name}</h3>
-              <p className="product-description">{product.description}</p>
-              <p className="product-price">{product.price} ₴</p>
+
+              <p className="review-card__text">{review.text}</p>
+
+              {review.images.length > 0 && (
+                <div className="review-card__images">
+                  {review.images.slice(0, 3).map((image, index) => (
+                    <div key={index} className="review-card__image-wrapper">
+                      <img
+                        src={image}
+                        alt={`Review ${review.id} image ${index + 1}`}
+                        className="review-card__image"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="review-card__footer">
+                <div className="review-card__author">
+                  <span className="review-card__name">{review.author}</span>
+                  <span className="review-card__date">{review.date}</span>
+                </div>
+                <div className="review-card__helpful">
+                  <span>Helpful ({review.helpful})</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
-
-      {selectedProduct && (
-        <div className="product-modal">
-          <div className="modal-content">
-            <button className="modal-close" onClick={handleCloseModal}>
-              ×
-            </button>
-            <div className="modal-gallery">
-              <div className="main-image">
-                <img
-                  src={`../../assets/img/products/${selectedProduct.images[activeImage]}`}
-                  alt={selectedProduct.name}
-                />
-              </div>
-              <div className="thumbnail-container">
-                {selectedProduct.images.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`thumbnail ${
-                      activeImage === index ? "active" : ""
-                    }`}
-                    onClick={() => setActiveImage(index)}
-                  >
-                    <img
-                      src={`../../assets/img/products/${image}`}
-                      alt={`${selectedProduct.name} ${index + 1}`}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="modal-info">
-              <h3>{selectedProduct.name}</h3>
-              <p className="modal-description">{selectedProduct.description}</p>
-              <p className="modal-price">{selectedProduct.price} ₴</p>
-              <button className="buy-button">Купити</button>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
