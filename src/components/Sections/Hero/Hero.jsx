@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import heroImage1x from "../../../assets/img/hero/ima_1x.png";
-import heroImage2x from "../../../assets/img/hero/ima_2x.png";
+import heroImage1x from "../../../assets/img/hero/image_1x.png";
+import heroImage2x from "../../../assets/img/hero/image_2x.png";
 import "./Hero.css";
 
 const Hero = () => {
@@ -60,7 +60,6 @@ const Hero = () => {
         </div>
 
         <div className="hero__content" ref={titleRef}>
-          <span className="hero__label">BOYHOM R36S</span>
           <h1 className="hero__title">
             <span className="hero__title-line">Игровая ретро </span>
             <span className="hero__title-line">консоль R36S</span>
