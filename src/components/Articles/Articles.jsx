@@ -1,117 +1,101 @@
-// src/components/Articles/Articles.jsx
-import { useEffect, useState } from "react";
-import Accordion from "accordion-js";
-import "accordion-js/dist/accordion.min.css";
+import { useEffect, useRef } from "react";
 import "./Articles.css";
 
 const Articles = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const articles = {
-    portable: [
-      {
-        title: "Як вибрати портативну консоль?",
-        content: `
-          <p>При виборі портативної консолі важливо звернути увагу на наступні характеристики:</p>
-          <ul>
-            <li>Тривалість роботи від батареї</li>
-            <li>Роздільна здатність екрану</li>
-            <li>Вага та розміри</li>
-            <li>Доступність ігор</li>
-          </ul>
-        `,
-      },
-      {
-        title: "Догляд за портативною консоллю",
-        content: `
-          <p>Щоб ваша консоль служила довго, дотримуйтесь цих правил:</p>
-          <ul>
-            <li>Регулярно очищайте екран та корпус</li>
-            <li>Використовуйте захисний чохол</li>
-            <li>Уникайте перегріву пристрою</li>
-          </ul>
-        `,
-      },
-    ],
-    tv: [
-      {
-        title: "Підключення консолі до телевізора",
-        content: `
-          <p>Правильне підключення консолі важливе для найкращої якості зображення:</p>
-          <ul>
-            <li>Використовуйте HDMI 2.1 для 4K/120Hz</li>
-            <li>Налаштуйте HDR якщо доступно</li>
-            <li>Виберіть правильний режим зображення на ТВ</li>
-          </ul>
-        `,
-      },
-    ],
-  };
+  const articlesRef = useRef([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById("articles");
-      if (element) {
-        const position = element.getBoundingClientRect();
-        if (position.top < window.innerHeight * 0.75) {
-          setIsVisible(true);
-        }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      },
+      {
+        threshold: 0.1,
       }
-    };
+    );
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    articlesRef.current.forEach((article) => {
+      if (article) {
+        article.style.opacity = 0;
+        article.style.transform = "translateY(20px)";
+        article.style.transition = "all 0.6s ease-out";
+        observer.observe(article);
+      }
+    });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (isVisible) {
-      const accordion = new Accordion(".articles-accordion", {
-        duration: 400,
-        showMultiple: true,
-        onOpen: (currentElement) => {
-          console.log("opened", currentElement);
+  const articles = [
+    {
+      id: 1,
+      title: "Инновационный прорыв в мире портативных игровых консолей",
+      sections: [
+        {
+          subtitle: "История успеха бренда на российском рынке",
+          content:
+            "BOYHOM R36S стремительно завоевывает сердца российских геймеров. Безусловно, этот бренд уже успел зарекомендовать себя на рынках СНГ. Более того, тысячи довольных пользователей ежедневно наслаждаются любимыми играми на своих консолях. Примечательно, что официальное присутствие бренда в России обеспечивает полную поддержку и гарантийное обслуживание.",
         },
-        onClose: (currentElement) => {
-          console.log("closed", currentElement);
+        {
+          subtitle: "Технические преимущества и инновации",
+          content:
+            "Современный процессор обеспечивает плавный геймплей даже в требовательных играх. В частности, мощная батарея гарантирует до 6 часов непрерывной игры. Следовательно, вы можете наслаждаться BOYHOM R36S игры без постоянной подзарядки. Помимо этого, яркий IPS-экран с разрешением 1280x720 делает изображение кристально четким.",
         },
-      });
-
-      return () => accordion.destroy();
-    }
-  }, [isVisible]);
+        {
+          subtitle: "Игровые возможности и развлечения",
+          content:
+            "Обширная библиотека совместимых игр впечатляет разнообразием жанров. Следует упомянуть, что BOYHOM R36S поддерживает множество популярных эмуляторов. Вместе с тем, встроенная память позволяет хранить сотни игр. Кроме того, слот для карты памяти обеспечивает дополнительное пространство для хранения.",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "BOYHOM R36S: Новая эра портативных игровых консолей",
+      sections: [
+        {
+          subtitle: "Лидерство на рынке СНГ",
+          content:
+            "Компания BOYHOM уверенно развивается на территории всех русскоговорящих стран. Официальные представительства открыты в России, Беларуси и Казахстане. Наши сервисные центры работают в каждом крупном городе. Профессиональная команда специалистов обеспечивает быструю техническую поддержку.",
+        },
+        {
+          subtitle: "Революционные технические характеристики",
+          content:
+            "Игровая консоль оснащена мощным процессором последнего поколения. Встроенный графический ускоритель обеспечивает плавный геймплей. Батарея повышенной емкости гарантирует продолжительную работу устройства. Яркий IPS-дисплей отображает картинку в высоком разрешении.",
+        },
+        {
+          subtitle: "Расширенные игровые возможности",
+          content:
+            "Библиотека совместимых игр включает тысячи популярных тайтлов. Мощное железо позволяет запускать требовательные 3D-проекты. Поддержка различных эмуляторов расширяет игровые возможности. Пользователи получают доступ к классическим и современным играм.",
+        },
+      ],
+    },
+  ];
 
   return (
-    <section id="articles" className="articles">
-      <div className="container mx-auto px-4">
-        <h2 className={`articles-title ${isVisible ? "fade-in-up" : ""}`}>
-          Корисна інформація
-        </h2>
-
-        <div className="articles-accordion">
-          {Object.entries(articles).map(([category, items]) => (
-            <div key={category} className="ac">
-              <h3 className="ac-header">
-                <button type="button" className="ac-trigger">
-                  {category === "portable"
-                    ? "Портативні консолі"
-                    : "Консолі для телевізора"}
-                </button>
-              </h3>
-              <div className="ac-panel">
-                <div className="ac-content">
-                  {items.map((article, index) => (
-                    <div key={index} className="article-item">
-                      <h4>{article.title}</h4>
-                      <div
-                        dangerouslySetInnerHTML={{ __html: article.content }}
-                      />
-                    </div>
-                  ))}
+    <section className="articles" id="articles">
+      <div className="articles__container">
+        <div className="articles__grid">
+          {articles.map((article, index) => (
+            <article
+              key={article.id}
+              className="article"
+              ref={(el) => (articlesRef.current[index] = el)}
+            >
+              <h2 className="article__title">{article.title}</h2>
+              {article.sections.map((section, sectionIndex) => (
+                <div key={sectionIndex}>
+                  <h3 className="article__subtitle">{section.subtitle}</h3>
+                  <div className="article__content">
+                    <p>{section.content}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
+              ))}
+            </article>
           ))}
         </div>
       </div>
