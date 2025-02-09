@@ -61,7 +61,7 @@ const Hero = () => {
 
         <div className="hero__content" ref={titleRef}>
           <h1 className="hero__title">
-            <span className="hero__title-line">Игровая ретро </span>
+            <span className="hero__title-line">Игровая ретро</span>
             <span className="hero__title-line">консоль R36S</span>
           </h1>
           <p className="hero__description">
@@ -98,13 +98,6 @@ const Hero = () => {
             </a>
           </div>
         </div>
-      </div>
-
-      <div className="hero__scroll-indicator">
-        <div className="hero__mouse">
-          <div className="hero__mouse-wheel"></div>
-        </div>
-        <span>Прокрутите вниз</span>
       </div>
     </section>
   );
