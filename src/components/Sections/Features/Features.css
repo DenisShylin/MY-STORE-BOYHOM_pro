@@ -1,3 +1,14 @@
+/* Глобальные стили для плавной прокрутки */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+* {
+    transition: all 0.3s ease-out;
+}
+
+/* Основные стили компонента */
 .features {
     background-color: #0F172A;
     background-image:
@@ -5,14 +16,18 @@
     color: #fff;
     padding: 100px 0;
     overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .features__container {
-    max-width: 1200px;
+    max-width: 1400px;
+    /* Увеличено с 1200px */
     margin: 0 auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.8fr 1.2fr;
+    /* Изменены пропорции в пользу видео */
     gap: 60px;
     align-items: center;
 }
@@ -54,8 +69,21 @@
     margin-bottom: 0;
 }
 
+.features__buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Обновленные стили кнопок */
 .features__button {
+    padding: 16px 32px;
     border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
     background: linear-gradient(45deg,
             #FF3366,
             #FF6B6B,
@@ -68,12 +96,9 @@
     padding: 18px 36px;
     font-size: 18px;
     font-weight: 600;
-    position: relative;
-    overflow: hidden;
     animation: gradientShift 8s ease infinite;
     box-shadow: 0 8px 24px rgba(255, 51, 102, 0.3);
     transform: scale(1);
-    transition: all 0.3s ease;
 }
 
 .features__button:hover {
@@ -82,14 +107,34 @@
     animation: gradientShift 4s ease infinite;
 }
 
-.features__button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
-
+.features__button-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 
+.features__button-secondary:hover {
+    border-color: #FF3366;
+    background: rgba(255, 51, 102, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Обновленные стили для видео секции */
 .features__image {
     position: relative;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideIn 0.8s ease forwards;
+    width: 100%;
 }
 
 .features__image-wrapper {
@@ -99,37 +144,18 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     transform: perspective(1000px) rotateY(-15deg);
     transition: transform 0.6s ease;
+    aspect-ratio: 16/9;
+    width: 100%;
 }
 
 .features__image-wrapper:hover {
     transform: perspective(1000px) rotateY(-5deg);
 }
 
-.features__slider {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.features__slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-    pointer-events: none;
-}
-
-.features__slide.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
 .features__console-img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     transform: scale(1);
     transition: transform 0.6s ease;
@@ -139,49 +165,7 @@
     transform: scale(1.05);
 }
 
-.features__dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 10;
-}
-
-.features__dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.features__dot:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.features__dot.active {
-    background: #fff;
-    transform: scale(1.2);
-}
-
-.features__image-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
+/* Анимации */
 @keyframes gradientShift {
     0% {
         background-position: 0% 50%;
@@ -196,11 +180,24 @@
     }
 }
 
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Медиа запросы */
 @media (max-width: 992px) {
     .features__container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
     }
 
     .features__content {
@@ -213,8 +210,26 @@
 
     .features__image-wrapper {
         transform: perspective(1000px) rotateY(0);
-        max-width: 500px;
+        max-width: 800px;
+        /* Увеличено с 500px */
         margin: 0 auto;
+    }
+
+    .features__buttons {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .features__button,
+    .features__button-secondary {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .features__image-wrapper {
+        max-width: 100%;
     }
 }
 
@@ -231,8 +246,15 @@
         font-size: 14px;
     }
 
-    .features__button {
+    .features__buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .features__button,
+    .features__button-secondary {
         width: 100%;
-        padding: 14px 20px;
+        padding: 12px 24px;
+        font-size: 14px;
     }
 }

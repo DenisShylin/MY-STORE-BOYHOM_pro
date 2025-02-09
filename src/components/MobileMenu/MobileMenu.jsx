@@ -1,6 +1,8 @@
 import "./MobileMenu.css";
 
 const MobileMenu = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+
   return (
     <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
       <div className="mobile-menu__content">
