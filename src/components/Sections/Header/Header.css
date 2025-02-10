@@ -194,6 +194,13 @@
 }
 
 /* Медиа-запросы */
+@media (max-width: 1200px) {
+    .nav {
+        padding: 0 40px;
+        /* Увеличенные отступы для планшетов */
+    }
+}
+
 @media (max-width: 768px) {
     .burger-btn {
         display: block;
@@ -204,7 +211,8 @@
     }
 
     .nav {
-        padding: 0 16px;
+        padding: 0 30px;
+        /* Увеличенные отступы для мобильных устройств */
     }
 
     .logo {
@@ -219,6 +227,11 @@
 
     .header.scrolled {
         height: 60px;
+    }
+
+    .nav {
+        padding: 0 25px;
+        /* Отступы для маленьких мобильных устройств */
     }
 
     .logo {

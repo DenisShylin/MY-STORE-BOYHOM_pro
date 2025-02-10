@@ -52,18 +52,17 @@ const About = () => {
           <rect x="2" y="6" width="20" height="12" rx="2"></rect>
         </svg>
       ),
-      title: "Обширная коллекция ретро-игр",
-      description:
-        "Погрузитесь в ретро-игры с портативной игровой консолью r36s",
+      title: "Retro Game Collection",
+      description: "Get into the game with the r36s portable gaming console.",
       number: "15K+",
-      detail: "классических игр",
-      fullDescription: `Откройте для себя богатую коллекцию классических игр, включающую более 15,000 тайтлов из разных эпох. От культовых аркад до любимых консольных игр - наша библиотека охватывает все значимые платформы прошлого.
+      detail: "classic games",
+      fullDescription: `Discover a rich collection of classic games, including over 15,000 titles from different eras. From iconic arcade games to beloved console games, our library spans every significant platform of the past.
 
-В коллекцию входят:
-• Классические аркадные игры 80-х и 90-х
-• Полные библиотеки NES, SNES, Sega и других консолей
-• Эксклюзивные порты и редкие релизы
-• Оптимизированные версии для современного железа`,
+The collection includes:
+• Classic arcade games from the 80s and 90s
+• Complete libraries of NES, SNES, Sega and other consoles
+• Exclusive ports and rare releases
+• Optimized versions for modern hardware`,
       imageUrl: "/src/assets/img/hero/Display_Controls (2).webp",
       imageAlt: "Коллекция ретро-игр",
     },
@@ -85,20 +84,27 @@ const About = () => {
           <line x1="12" y1="17" x2="12" y2="21"></line>
         </svg>
       ),
-      title: "Яркие технологии отображения",
+      title: "Vibrant Display Technologies",
       description:
-        "Наслаждайтесь яркими играми на 3,5-дюймовом ЖК-дисплее с четким разрешением 640x480",
+        "Enjoy vivid games on the 3.5* LCD display with crisp 640x480 resolution.",
       number: '3.5"',
-      detail: "IPS дисплей",
-      fullDescription: `Откройте для себя богатую коллекцию классических игр, включающую более 15,000 тайтлов из разных эпох. От культовых аркад до любимых консольных игр - наша библиотека охватывает все значимые платформы прошлого.
+      detail: "IPS display",
+      fullDescription: `R36S Console Display Specifications
 
-В коллекцию входят:
-• Классические аркадные игры 80-х и 90-х
-• Полные библиотеки NES, SNES, Sega и других консолей
-• Эксклюзивные порты и редкие релизы
-• Оптимизированные версии для современного железа`,
+ Screen & Processing
+- Resolution: 640x480 with advanced LCD panel
+- Processor: Quad-core 64-bit Cortex-A35 (up to 1.8GHz)
+- Memory: 1GB DDR3L RAM
+
+ Display Features
+- Wide viewing angle LCD panel
+- Adjustable color temperature
+- Eye protection:
+  - Blue light filter
+  - Reduced eye strain technology
+- Durable hardened glass screen protection`,
       imageUrl: "/src/assets/video/video.gif",
-      imageAlt: "Коллекция ретро-игр",
+      imageAlt: "Retro games collection",
     },
     {
       id: 3,
@@ -117,19 +123,22 @@ const About = () => {
           <line x1="22" y1="11" x2="22" y2="13"></line>
         </svg>
       ),
-      title: "Максимальная портативность",
-      description:
-        "Портативная, легкая консоль со съемным аккумулятором для игр на ходу",
-      number: "6+",
-      detail: "часов игры",
-      fullDescription: `Откройте для себя богатую коллекцию классических игр, включающую более 15,000 тайтлов из разных эпох. От культовых аркад до любимых консольных игр - наша библиотека охватывает все значимые платформы прошлого.
+      title: "Powerful battery",
+      description: "Enjoy up to 7-8 hours of continuous gaming with the R36S",
+      number: "7-8",
+      detail: "hours of play",
+      fullDescription: `**Powerful 3200 mAh Battery**
 
-В коллекцию входят:
-• Классические аркадные игры 80-х и 90-х
-• Полные библиотеки NES, SNES, Sega и других консолей
-• Эксклюзивные порты и редкие релизы
-• Оптимизированные версии для современного железа`,
-      imageUrl: "/src/assets/img/hero/Display_Controls (2).webp",
+Experience up to 7-8 hours of extended gaming with the R36S. The high-capacity 3200 mAh battery powers its crisp 3.5-inch IPS display (640x480 resolution), delivering an immersive gaming experience without frequent charging.
+
+Key features:
+- Long-lasting gameplay 
+- Full-screen IPS display
+- Portable design
+- Uninterrupted entertainment
+
+Take your gaming anywhere – play more, charge less.`,
+      imageUrl: "/src/assets/img/modal/modal_3_2x.jpg",
       imageAlt: "Коллекция ретро-игр",
     },
     {
@@ -159,7 +168,7 @@ const About = () => {
 • Полные библиотеки NES, SNES, Sega и других консолей
 • Эксклюзивные порты и редкие релизы
 • Оптимизированные версии для современного железа`,
-      imageUrl: "/src/assets/img/hero/Display_Controls (2).webp",
+      imageUrl: "/src/assets/img/modal/modal_3_2x.jpg",
       imageAlt: "Коллекция ретро-игр",
     },
     {
@@ -213,19 +222,21 @@ const About = () => {
           <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
         </svg>
       ),
-      title: "Мультиплеер режим",
+      title: "Maximum portability",
       description:
-        "Играйте вместе с друзьями в режиме мультиплеера через WiFi или локальное соединение",
+        "Portable console with removable battery for gaming on the go",
       number: "2-4",
       detail: "игрока",
-      fullDescription: `Откройте для себя богатую коллекцию классических игр, включающую более 15,000 тайтлов из разных эпох. От культовых аркад до любимых консольных игр - наша библиотека охватывает все значимые платформы прошлого.
+      fullDescription: `Whether commuting, traveling, or taking a quick break, the R36S is ready for instant entertainment. Its durable design and protected screen ensure worry-free portability, while the long-lasting battery keeps you gaming on the go.
 
-В коллекцию входят:
-• Классические аркадные игры 80-х и 90-х
-• Полные библиотеки NES, SNES, Sega и других консолей
-• Эксклюзивные порты и редкие релизы
-• Оптимизированные версии для современного железа`,
-      imageUrl: "/src/assets/img/hero/Display_Controls (2).webp",
+Features:
+• Pocket-sized dimensions for ultimate portability
+• Rugged construction for daily carry
+• Ergonomic grip for extended gaming sessions
+• Quick startup for instant gaming access
+
+Never compromise between portability and performance - the R36S delivers both in a perfectly portable package.`,
+      imageUrl: "/src/assets/img/modal/modal_4_2x.jpg",
       imageAlt: "Коллекция ретро-игр",
     },
   ];
@@ -238,7 +249,7 @@ const About = () => {
             <span className="about__label">Возможности</span>
             <span className="about__label about__label--outline">R36S</span>
           </div>
-          <h2 className="about__title">ИГРАЙТЕ. ОБЩАЙТЕСЬ. ОЖИВИТЕ.</h2>
+          <h2 className="about__title">Play. Dream. Transform.</h2>
           <p className="about__subtitle">
             Откройте для себя мир ретро-игр с современными технологиями
           </p>
@@ -273,7 +284,7 @@ const About = () => {
                   className="about-card__button"
                   onClick={(e) => handleOpenModal(feature, e)}
                 >
-                  <span className="button-text">Подробнее</span>
+                  <span className="button-text">More details</span>
                   <span className="button-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

@@ -70,7 +70,7 @@ const Features = () => {
     <section className="features" id="features" ref={sectionRef}>
       <div className="features__container">
         <div className="features__content">
-          <h2 className="features__title">Консоль R36S</h2>
+          <h2 className="features__title">Console R36S</h2>
 
           <div className="features__description">
             <p>
