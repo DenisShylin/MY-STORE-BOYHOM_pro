@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 import {
-  Home,
   Gamepad2,
   Laptop2,
   PlayCircle,
-  BookOpen,
   MessageCircle,
   PhoneCall,
 } from "lucide-react";
@@ -25,36 +23,38 @@ const MobileMenu = ({ isOpen, onClose }) => {
 
   const handleLinkClick = () => {
     onClose();
-    // Добавляем небольшую задержку для плавности
     setTimeout(() => {
       document.body.style.overflow = "unset";
     }, 300);
   };
 
   const menuItems = [
-    { id: 1, icon: <Home size={24} />, text: "Главная", href: "#hero" },
     {
-      id: 2,
+      id: 1,
       icon: <Gamepad2 size={24} />,
       text: "Возможности",
+      href: "#features-r36s",
+    },
+    {
+      id: 2,
+      icon: <Laptop2 size={24} />,
+      text: "Про R36S",
       href: "#features",
     },
-    { id: 3, icon: <Laptop2 size={24} />, text: "Про R36S", href: "#about" },
+    {
+      id: 3,
+      icon: <PlayCircle size={24} />,
+      text: "Видео",
+      href: "#categories",
+    },
     {
       id: 4,
-      icon: <PlayCircle size={24} />,
-      text: "Демонстрация",
-      href: "#demo",
-    },
-    { id: 5, icon: <BookOpen size={24} />, text: "Интересное", href: "#blog" },
-    {
-      id: 6,
       icon: <MessageCircle size={24} />,
       text: "Отзывы",
       href: "#reviews",
     },
     {
-      id: 7,
+      id: 5,
       icon: <PhoneCall size={24} />,
       text: "Контакты",
       href: "#contact",

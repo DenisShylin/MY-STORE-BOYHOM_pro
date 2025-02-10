@@ -1,17 +1,38 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
 import "./Features.css";
 
 const Features = () => {
   const videoRef = useRef(null);
+  const sectionRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    // Автоматическое воспроизведение видео при загрузке компонента
+    // Автоматическое воспроизведение видео и установка громкости
     if (videoRef.current) {
+      videoRef.current.volume = 0.5; // Устанавливаем громкость на 50%
       videoRef.current.play().catch((error) => {
         console.log("Автовоспроизведение не удалось:", error);
       });
     }
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current && videoRef.current && !isMuted) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (!isVisible) {
+          videoRef.current.muted = true;
+          setIsMuted(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMuted]);
 
   const handleBuyClick = () => {
     window.open(
@@ -34,11 +55,22 @@ const Features = () => {
     }
   };
 
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      // При включении звука убеждаемся, что громкость установлена на 50%
+      if (!videoRef.current.muted) {
+        videoRef.current.volume = 0.5;
+      }
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
-    <section className="features" id="features">
+    <section className="features" id="features" ref={sectionRef}>
       <div className="features__container">
         <div className="features__content">
-          <h2 className="features__title">BOYHOM R36S</h2>
+          <h2 className="features__title">Консоль R36S</h2>
 
           <div className="features__description">
             <p>
@@ -79,13 +111,24 @@ const Features = () => {
               ref={videoRef}
               className="features__console-img"
               loop
-              muted
+              muted={isMuted}
               playsInline
               autoPlay
             >
               <source src="/src/assets/video/VIDEO_RS36.mp4" type="video/mp4" />
               Ваш браузер не поддерживает видео тег.
             </video>
+            <button
+              className="features__sound-toggle"
+              onClick={toggleMute}
+              aria-label={isMuted ? "Включить звук" : "Выключить звук"}
+            >
+              {isMuted ? (
+                <VolumeX className="features__sound-icon" />
+              ) : (
+                <Volume2 className="features__sound-icon" />
+              )}
+            </button>
           </div>
         </div>
       </div>

@@ -28,39 +28,34 @@ const Header = () => {
       >
         <nav className="nav">
           <a href="/" className="logo">
-            BOYHOM
+            R36S
           </a>
 
           {/* Десктопне меню */}
           <ul className="desktop-menu">
             <li>
-              <a className="our-menu-link" href="#hero">
-                Головна
+              <a className="our-menu-link" href="#features-r36s">
+                Возможности
               </a>
             </li>
             <li>
-              <a className="our-menu-link" href="#about">
-                Про нас
+              <a className="our-menu-link" href="#features">
+                Про R36S
               </a>
             </li>
             <li>
-              <a className="our-menu-link" href="#catalog">
-                Каталог
+              <a className="our-menu-link" href="#categories">
+                Видео
               </a>
             </li>
             <li>
-              <a className="our-menu-link" href="#home">
-                Ціни
+              <a className="our-menu-link" href="#reviews">
+                Отзывы
               </a>
             </li>
             <li>
-              <a className="our-menu-link" href="#contacts">
+              <a className="our-menu-link" href="#contact">
                 Контакти
-              </a>
-            </li>
-            <li>
-              <a className="our-menu-link" href="#contacts">
-                Відгуки
               </a>
             </li>
           </ul>
