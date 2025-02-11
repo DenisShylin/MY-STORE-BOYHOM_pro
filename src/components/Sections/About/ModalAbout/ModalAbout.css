@@ -260,4 +260,98 @@
         padding: 10px 17px;
         font-size: 12px;
     }
+
+    @keyframes modalAboutOverlayShow {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes modalAboutShow {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes gradientShift {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .sound-control {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: white;
+        backdrop-filter: blur(4px);
+    }
+
+    .sound-control:hover {
+        background: rgba(0, 0, 0, 0.7);
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .sound-control:active {
+        transform: scale(0.95);
+    }
+
+    .sound-control svg {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        min-height: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .sound-control {
+            width: 34px;
+            height: 34px;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        .sound-control svg {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            min-height: 16px;
+        }
+    }
+
 }

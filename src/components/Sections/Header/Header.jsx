@@ -35,27 +35,27 @@ const Header = () => {
           <ul className="desktop-menu">
             <li>
               <a className="our-menu-link" href="#features-r36s">
-                Возможности
+                Functionality
               </a>
             </li>
             <li>
               <a className="our-menu-link" href="#features">
-                Про R36S
+                About R36S
               </a>
             </li>
             <li>
               <a className="our-menu-link" href="#categories">
-                Видео
+                Video
               </a>
             </li>
             <li>
               <a className="our-menu-link" href="#reviews">
-                Отзывы
+                Reviews
               </a>
             </li>
             <li>
               <a className="our-menu-link" href="#contact">
-                Контакти
+                Contacts
               </a>
             </li>
           </ul>

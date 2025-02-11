@@ -63,7 +63,7 @@ The collection includes:
 • Complete libraries of NES, SNES, Sega and other consoles
 • Exclusive ports and rare releases
 • Optimized versions for modern hardware`,
-      imageUrl: "/src/assets/img/hero/Display_Controls (2).webp",
+      imageUrl: "/src/assets/img/modal/Display_Controls (2).webp",
       imageAlt: "Коллекция ретро-игр",
     },
     {
@@ -124,7 +124,7 @@ The collection includes:
         </svg>
       ),
       title: "Powerful battery",
-      description: "Enjoy up to 7-8 hours of continuous gaming with the R36S",
+      description: "Enjoy up to 7-8 hours of continuous gaming with the R36S.",
       number: "7-8",
       detail: "hours of play",
       fullDescription: `**Powerful 3200 mAh Battery**
@@ -138,7 +138,7 @@ Key features:
 - Uninterrupted entertainment
 
 Take your gaming anywhere – play more, charge less.`,
-      imageUrl: "/src/assets/img/modal/modal_3_2x.jpg",
+      imageUrl: "/src/assets/video/video_batrey.MP4",
       imageAlt: "Коллекция ретро-игр",
     },
     {
@@ -157,18 +157,26 @@ Take your gaming anywhere – play more, charge less.`,
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         </svg>
       ),
-      title: "Надежность и безопасность",
-      description: "Играйте безопасно и комфортно с сертифицированной системой",
-      number: "100%",
-      detail: "безопасность",
-      fullDescription: `Откройте для себя богатую коллекцию классических игр, включающую более 15,000 тайтлов из разных эпох. От культовых аркад до любимых консольных игр - наша библиотека охватывает все значимые платформы прошлого.
+      title: "Extensive color selection",
+      description: "Experience our wide selection of stunning console colors.",
+      number: "10+",
+      detail: "COLORS",
+      fullDescription: `Experience the R36S Collection:
 
-В коллекцию входят:
-• Классические аркадные игры 80-х и 90-х
-• Полные библиотеки NES, SNES, Sega и других консолей
-• Эксклюзивные порты и редкие релизы
-• Оптимизированные версии для современного железа`,
-      imageUrl: "/src/assets/img/modal/modal_3_2x.jpg",
+The R36S console delivers 12+ captivating color variations in 2024, including our signature Midnight Black and eye-catching Galactic Purple. Each R36S model features recycled plastic finish and scratch-resistant coating. Since its launch, over 2M gamers worldwide chose R36S for its unique design options. Join the 92% of players rating our vibrant color selection 4.9/5.
+
+Available Colors:
+- Classic Black
+- Vibrant Orange
+- Mesmerizing Purple
+- Dynamic Red
+- Pure White
+- Radiant Yellow
+- Serene Lake Blue
+- Deep Marine Blue
+- Natural Olive Green
+- Premium Transparent Red`,
+      imageUrl: "/src/assets/img/modal/R36S_1x_jpej.jpg",
       imageAlt: "Коллекция ретро-игр",
     },
     {
@@ -188,19 +196,25 @@ Take your gaming anywhere – play more, charge less.`,
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </svg>
       ),
-      title: "Широкие настройки",
+      title: "Extensive settings",
       description:
-        "Настройте управление, яркость, звук и другие параметры под себя для максимального комфорта",
-      number: "50+",
-      detail: "настроек",
-      fullDescription: `Откройте для себя богатую коллекцию классических игр, включающую более 15,000 тайтлов из разных эпох. От культовых аркад до любимых консольных игр - наша библиотека охватывает все значимые платформы прошлого.
+        "Customize controls, brightness, sound and settings for maximum comfort",
+      number: "30+",
+      detail: "settings",
+      fullDescription: `Features & Connectivity:
 
-В коллекцию входят:
-• Классические аркадные игры 80-х и 90-х
-• Полные библиотеки NES, SNES, Sega и других консолей
-• Эксклюзивные порты и редкие релизы
-• Оптимизированные версии для современного железа`,
-      imageUrl: "/src/assets/img/hero/Display_Controls (2).webp",
+- Connect to external displays via OTG for large-screen gaming
+- Compatible with modern gaming controllers and gamepads
+- Multi-language interface support
+- Customizable control schemes and button mapping
+- Advanced display settings with adjustable brightness and contrast
+- Audio optimization with multiple sound profiles
+- Screen mirroring capability
+- Low latency connection for seamless gameplay
+- Expandable storage support
+- Quick system updates
+- User-friendly interface`,
+      imageUrl: "/src/assets/video/Video_option2.MP4",
       imageAlt: "Коллекция ретро-игр",
     },
     {
@@ -246,12 +260,12 @@ Never compromise between portability and performance - the R36S delivers both in
       <div className="about__container">
         <div className="about__header">
           <div className="about__labels">
-            <span className="about__label">Возможности</span>
+            <span className="about__label">Functionality</span>
             <span className="about__label about__label--outline">R36S</span>
           </div>
-          <h2 className="about__title">Play. Dream. Transform.</h2>
+          <h2 className="about__title">Your Adventure Starts Here</h2>
           <p className="about__subtitle">
-            Откройте для себя мир ретро-игр с современными технологиями
+            Discover the world of retro gaming with modern technology.
           </p>
         </div>
 

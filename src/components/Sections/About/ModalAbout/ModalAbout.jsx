@@ -1,7 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./ModalAbout.css";
 
 const ModalAbout = ({ feature, onClose }) => {
+  const [isVideo, setIsVideo] = useState(false);
+
+  useEffect(() => {
+    // Проверяем, является ли источник видео файлом
+    const checkIsVideo = () => {
+      const videoExtensions = [".mp4", ".MP4", ".webm", ".ogg"];
+      return videoExtensions.some((ext) =>
+        feature.imageUrl.toLowerCase().endsWith(ext)
+      );
+    };
+
+    setIsVideo(checkIsVideo());
+  }, [feature.imageUrl]);
+
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") {
@@ -19,6 +33,31 @@ const ModalAbout = ({ feature, onClose }) => {
       document.body.style.overflow = "visible";
     };
   }, []);
+
+  const renderMedia = () => {
+    if (isVideo) {
+      return (
+        <video
+          className="modal-about-image"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src={feature.imageUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      );
+    }
+    return (
+      <img
+        src={feature.imageUrl}
+        alt={feature.imageAlt}
+        className="modal-about-image"
+      />
+    );
+  };
 
   return (
     <div className="modal-about-overlay" onClick={onClose}>
@@ -46,11 +85,7 @@ const ModalAbout = ({ feature, onClose }) => {
         </div>
 
         <div className="modal-about-body">
-          <img
-            src={feature.imageUrl}
-            alt={feature.imageAlt}
-            className="modal-about-image"
-          />
+          {renderMedia()}
 
           <div className="modal-about-stats">
             <div className="modal-about-price-wrapper">
@@ -61,7 +96,7 @@ const ModalAbout = ({ feature, onClose }) => {
               </span>
             </div>
             <a
-              href="https://www.aliexpress.com/item/1005007171465465.html?spm=a2g0o.store_pc_home.0.0.70583a88IDCuNJ&pdp_npi=4%40dis%21UAH%214%C2%A0485%2C21%20%D0%B3%D1%80%D0%BD.%211%C2%A0472%2C53%20%D0%B3%D1%80%D0%BD.%21%21%21767.45%21251.96%21%40211b498b17390151033607761d21d7%2112000039694115852%21sh%21UA%211927913003%21X"
+              href="https://www.aliexpress.com/item/1005007171465465.html"
               className="modal-about-button modal-about-button--primary"
               target="_blank"
               rel="noopener noreferrer"
