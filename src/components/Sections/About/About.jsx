@@ -154,7 +154,9 @@ Take your gaming anywhere – play more, charge less.`,
           stroke="currentColor"
           strokeWidth="2"
         >
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <circle cx="12" cy="12" r="10"></circle>
+          <circle cx="12" cy="12" r="6"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
         </svg>
       ),
       title: "Extensive color selection",
@@ -238,9 +240,9 @@ Available Colors:
       ),
       title: "Maximum portability",
       description:
-        "Portable console with removable battery for gaming on the go",
-      number: "2-4",
-      detail: "игрока",
+        "Portable console with removable battery for gaming on the go.",
+      number: "Ultra",
+      detail: "Portable",
       fullDescription: `Whether commuting, traveling, or taking a quick break, the R36S is ready for instant entertainment. Its durable design and protected screen ensure worry-free portability, while the long-lasting battery keeps you gaming on the go.
 
 Features:
@@ -250,7 +252,7 @@ Features:
 • Quick startup for instant gaming access
 
 Never compromise between portability and performance - the R36S delivers both in a perfectly portable package.`,
-      imageUrl: "/src/assets/img/modal/modal_4_2x.jpg",
+      imageUrl: "/src/assets/video/video_moda_6.MP4",
       imageAlt: "Коллекция ретро-игр",
     },
   ];

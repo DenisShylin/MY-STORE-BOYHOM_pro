@@ -61,24 +61,24 @@ const Hero = () => {
 
         <div className="hero__content" ref={titleRef}>
           <h1 className="hero__title">
-            <span className="hero__title-line">Игровая ретро</span>
-            <span className="hero__title-line">консоль R36S</span>
+            <span className="hero__title-line">Gaming retro</span>
+            <span className="hero__title-line">console R36S</span>
           </h1>
           <p className="hero__description">
-            Откройте для себя мир ретро-гейминга с портативной консолью BOYHOM
-            R36S. 15 000+ классических игр, мощный процессор и яркий IPS экран –
-            все для незабываемых игровых приключений!
+            Discover the world of retro gaming with the BOYHOM R36S portable
+            console. 15,000+ classic games, a powerful processor and a bright
+            IPS screen - everything for an unforgettable gaming adventure!
           </p>
 
           <div className="hero__pricing">
             <div className="hero__price-wrapper">
-              <span className="hero__original-price">4,485.21 грн</span>
+              <span className="hero__original-price">US $108.06</span>
               <span className="hero__current-price">
-                1,472.53
-                <span style={{ fontSize: "24px" }}>грн</span>
+                US 35.48
+                <span style={{ fontSize: "24px" }}>$</span>
               </span>
             </div>
-            <span className="hero__discount-badge">-70%</span>
+            <span className="hero__discount-badge">-68%</span>
           </div>
 
           <div className="hero__buttons">
@@ -87,14 +87,14 @@ const Hero = () => {
               onClick={handleBuyClick}
             >
               <span className="hero__button-pulse"></span>
-              <span className="hero__button-text">Купить со скидкой</span>
+              <span className="hero__button-text">Shop With Discount</span>
               <span className="hero__button-shine"></span>
             </button>
             <a
               href="#features"
               className="hero__button hero__button--secondary"
             >
-              Подробнее
+              More details
             </a>
           </div>
         </div>

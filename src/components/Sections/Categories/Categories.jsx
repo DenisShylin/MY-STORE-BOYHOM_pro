@@ -85,16 +85,16 @@ const Categories = () => {
         <div className="categories__content">
           <div className="categories__info">
             <div className="categories__labels">
-              <span className="categories__label">Демонстрация</span>
+              <span className="categories__label">Demonstration</span>
               <span className="categories__label categories__label--outline">
-                Игровой процесс
+                Gameplay
               </span>
             </div>
-            <h2 className="categories__title">Видео R36S</h2>
+            <h2 className="categories__title">R36S Video</h2>
             <p className="categories__description">
-              Погрузитесь в мир классических игр с улучшенной графикой и плавным
-              геймплеем. Наслаждайтесь любимыми играми в высоком качестве на
-              ярком IPS экране.
+              Immerse yourself in the world of classic games with improved
+              graphics and smooth gameplay. Enjoy your favorite games in high
+              quality on a bright IPS screen.
             </p>
           </div>
 
@@ -112,7 +112,7 @@ const Categories = () => {
                 playsInline
               >
                 <source src="/src/assets/video/videoRS.mp4" type="video/mp4" />
-                Ваш браузер не поддерживает видео тег.
+                Your browser does not support the video tag.
               </video>
               <div className="categories__video-overlay"></div>
 
@@ -222,11 +222,11 @@ const Categories = () => {
                 </div>
                 <div className="categories__stat">
                   <span className="categories__stat-number">HD</span>
-                  <span className="categories__stat-label">Качество</span>
+                  <span className="categories__stat-label">Quality</span>
                 </div>
                 <div className="categories__stat">
                   <span className="categories__stat-number">3.5*</span>
-                  <span className="categories__stat-label">IPS Экран</span>
+                  <span className="categories__stat-label">IPS Screen</span>
                 </div>
               </div>
             </div>

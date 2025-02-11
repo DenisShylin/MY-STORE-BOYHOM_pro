@@ -3,6 +3,15 @@ import "./ModalAbout.css";
 
 const ModalAbout = ({ feature, onClose }) => {
   const [isVideo, setIsVideo] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Массив изображений для карусели (только для карточки с цветами)
+  const colorImages = [
+    "/src/assets/img/modal/Untitled_1_1x.jpg",
+    "/src/assets/img/modal/Untitled_2_1x.jpg",
+    "/src/assets/img/modal/Untitled_3_1x.jpg",
+    "/src/assets/img/modal/Untitled_4_1x.jpg",
+  ];
 
   useEffect(() => {
     // Проверяем, является ли источник видео файлом
@@ -34,7 +43,30 @@ const ModalAbout = ({ feature, onClose }) => {
     };
   }, []);
 
+  // Эффект для автоматической смены изображений
+  useEffect(() => {
+    let interval;
+    if (feature.title === "Extensive color selection") {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) =>
+          prevIndex === colorImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [feature.title]);
+
   const renderMedia = () => {
+    if (feature.title === "Extensive color selection") {
+      return (
+        <img
+          src={colorImages[currentImageIndex]}
+          alt={`R36S Color Variant ${currentImageIndex + 1}`}
+          className="modal-about-image"
+        />
+      );
+    }
+
     if (isVideo) {
       return (
         <video
@@ -50,6 +82,7 @@ const ModalAbout = ({ feature, onClose }) => {
         </video>
       );
     }
+
     return (
       <img
         src={feature.imageUrl}

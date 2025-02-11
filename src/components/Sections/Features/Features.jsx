@@ -74,15 +74,14 @@ const Features = () => {
 
           <div className="features__description">
             <p>
-              Портативная игровая консоль Retro Handheld R36S открывает дверь в
-              захватывающий мир ретро-гейминга, предлагая впечатляющую коллекцию
-              из более 15 000 легендарных игр разных эпох и платформ. Сердцем
-              консоли служит премиальный 3,5-дюймовый IPS-экран, который
-              передает изображение с потрясающей четкостью и насыщенностью
-              цветов. BOYHOM R36S не просто воспроизводит старые игры - она
-              переосмысливает ретро-гейминг для современной эпохи. Встроенная
-              поддержка онлайн-мультиплеера позволяет соревноваться с друзьями.
-              Погрузитесь в вселенную игр вместе с консолью BOYHOM R36S!
+              The Retro Handheld R36S portable gaming console opens the door to
+              the exciting world of retro gaming, offering an impressive
+              collection of over 15,000 legendary games from different eras and
+              platforms. The heart of the console is a premium 3.5-inch IPS
+              screen, which renders images with stunning clarity and color
+              saturation. The R36S does not just play old games - it rethinks
+              retro gaming for the modern era. Dive into the universe of games
+              with the R36S console!
             </p>
           </div>
 
@@ -92,7 +91,7 @@ const Features = () => {
               onClick={handleBuyClick}
               aria-label="Купить консоль R36S"
             >
-              Купить сейчас
+              Buy now -68%
             </button>
 
             <button
@@ -100,7 +99,7 @@ const Features = () => {
               onClick={handleMoreInfoClick}
               aria-label="Узнать больше о R36S"
             >
-              Узнать больше
+              Show Details
             </button>
           </div>
         </div>
@@ -116,7 +115,7 @@ const Features = () => {
               autoPlay
             >
               <source src="/src/assets/video/VIDEO_RS36.mp4" type="video/mp4" />
-              Ваш браузер не поддерживает видео тег.
+              Your browser does not support the video tag.
             </video>
             <button
               className="features__sound-toggle"
