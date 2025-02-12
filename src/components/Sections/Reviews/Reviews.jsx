@@ -1,6 +1,34 @@
 import { useState, useEffect } from "react";
 import "./Reviews.css";
 
+// Компонент кнопки лайка
+const LikeButton = ({ count }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="review-card__helpful"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill={isHovered ? "currentColor" : "none"}
+        stroke="currentColor"
+        strokeWidth="2"
+        className={`transform transition-all duration-300 ${
+          isHovered ? "scale-125" : "scale-100"
+        }`}
+      >
+        <path d="M14 9V5a3 3 0 0 0-3-3L7 11v10h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+      </svg>
+      <span>Helpful ({count})</span>
+    </div>
+  );
+};
+
 const Reviews = () => {
   const [animatedCards, setAnimatedCards] = useState([]);
 
@@ -11,12 +39,8 @@ const Reviews = () => {
       color: "Purple 64GB",
       author: "AliExpress Shopper",
       date: "21 Aug 2024",
-      text: "Regarding shipping, everything great and in time even arrived a few days before. Regarding the video console, incredible. its going great. I only recommend changing the SD you bring.",
-      images: [
-        "/src/assets/img/reviews/review1-1.jpg",
-        "/src/assets/img/reviews/review1-2.jpg",
-        "/src/assets/img/reviews/review1-3.jpg",
-      ],
+      text: "I just got my hands on the R36S retro console and it's seriously amazing for old-school gaming. The screen is super clear, it runs games smoothly, and battery life is solid. I love how I can load up my favorite classics and play anywhere. Plus, saving games whenever I want is super convenient.",
+      images: ["/src/assets/img/reviews/image_1.jpg"],
       helpful: 12,
       verified: true,
     },
@@ -26,11 +50,8 @@ const Reviews = () => {
       color: "Orange 64G",
       author: "V***h",
       date: "26 Aug 2024",
-      text: "For their own pennies (and then more according to the excise tax)a topper, for nostalguvati, or just a Mati, I will kill a lot of people on bagatoh platforms. The city cable does not use the vikidati-i can do it like that, if we do it at home, the console will charge it through it.",
-      images: [
-        "/src/assets/img/reviews/review2-1.jpg",
-        "/src/assets/img/reviews/review2-2.jpg",
-      ],
+      text: "After playing with the R36S for a week, I'm really impressed. The build quality feels great, and switching between different retro games is super easy. The controls are comfortable for long gaming sessions, and I don't have to worry about charging it all the time. It's exactly what I wanted for my daily commute.",
+      images: ["/src/assets/img/reviews/image_2.jpg"],
       helpful: 8,
       verified: true,
     },
@@ -40,12 +61,8 @@ const Reviews = () => {
       color: "White 64GB",
       author: "M***z",
       date: "22 Aug 2024",
-      text: "Pretty good in my opinion, its operating system is pretty well optimized. The catalog of games is extensive and well stocked. I would have liked them to add games such as Resident Evil or Silent Hill, even so I have the possibility to add it thanks to the expansion port MicroSD. Highly recommended 10/10",
-      images: [
-        "/src/assets/img/reviews/review3-1.jpg",
-        "/src/assets/img/reviews/review3-2.jpg",
-        "/src/assets/img/reviews/review3-3.jpg",
-      ],
+      text: "The R36S has become my go-to gaming device. I wasn't sure about buying another retro console, but this one surprised me. The screen is bright and sharp, games run without issues, and it's small enough to fit in my pocket. Definitely worth the money if you love classic games.",
+      images: ["/src/assets/img/reviews/image_3.jpg"],
       helpful: 15,
       verified: true,
     },
@@ -94,8 +111,8 @@ const Reviews = () => {
     <section className="reviews" id="reviews">
       <div className="reviews__container">
         <div className="reviews__header">
-          <span className="reviews__label">Отзывы покупателей</span>
-          <h2 className="reviews__title">Что говорят о консоли R36S</h2>
+          <span className="reviews__label">Reviews</span>
+          <h2 className="reviews__title">What Users Think About R36S</h2>
         </div>
 
         <div className="reviews__grid">
@@ -155,19 +172,7 @@ const Reviews = () => {
                     </span>
                     <span className="review-card__date">{review.date}</span>
                   </div>
-                  <div className="review-card__helpful">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M14 9V5a3 3 0 0 0-3-3L7 11v10h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
-                    </svg>
-                    <span>Полезно ({review.helpful})</span>
-                  </div>
+                  <LikeButton count={review.helpful} />
                 </div>
               </div>
             </div>
