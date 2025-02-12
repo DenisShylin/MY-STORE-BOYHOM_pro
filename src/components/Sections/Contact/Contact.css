@@ -120,17 +120,17 @@
     transition: all 0.3s ease;
 }
 
+.form__textarea {
+    height: 120px;
+    resize: none;
+}
+
 .form__input:focus,
 .form__textarea:focus {
     outline: none;
     border-color: #2563eb;
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.form__textarea {
-    height: 120px;
-    resize: vertical;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .form__button {
@@ -231,7 +231,6 @@
     z-index: 1;
 }
 
-/* Анимации */
 @keyframes titleGradient {
     0% {
         background-position: 0% 50%;
@@ -260,7 +259,6 @@
     }
 }
 
-/* Медиа запросы */
 @media (max-width: 1024px) {
     .contact__content {
         grid-template-columns: 1fr;
@@ -331,7 +329,6 @@
     }
 }
 
-/* Поддержка темной темы */
 @media (prefers-color-scheme: dark) {
     .contact {
         background-color: #0F172A;

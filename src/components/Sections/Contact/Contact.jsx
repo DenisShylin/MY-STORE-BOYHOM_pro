@@ -43,19 +43,19 @@ const Contact = () => {
         !formData.phone ||
         !formData.message
       ) {
-        throw new Error("Пожалуйста, заполните все поля");
+        throw new Error("Please fill in all fields");
       }
 
       // Валидация email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
-        throw new Error("Пожалуйста, введите корректный email");
+        throw new Error("Please enter a valid email");
       }
 
       // Валидация телефона
       const phoneRegex = /^\+?[0-9]{10,14}$/;
       if (!phoneRegex.test(formData.phone.replace(/\D/g, ""))) {
-        throw new Error("Пожалуйста, введите корректный номер телефона");
+        throw new Error("Please enter a valid phone number.");
       }
 
       // Имитация отправки на сервер
@@ -69,13 +69,11 @@ const Contact = () => {
         message: "",
       });
 
-      alert(
-        "Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
-      );
+      alert("Message sent successfully! We will contact you shortly.");
     } catch (error) {
       setError(
         error.message ||
-          "Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже."
+          "There was an error sending your message. Please try again later."
       );
       console.error("Form submission error:", error);
     } finally {
@@ -88,11 +86,11 @@ const Contact = () => {
       <div className="contact__noise"></div>
       <div className="contact__container">
         <div className="contact__header">
-          <span className="contact__label">Свяжитесь с нами</span>
-          <h2 className="contact__title">Остались вопросы?</h2>
+          <span className="contact__label">Start a Conversation</span>
+          <h2 className="contact__title">Looking for Answers</h2>
           <p className="contact__description">
-            Мы всегда готовы помочь вам с выбором консоли и ответить на любые
-            вопросы о BOYHOM R36S
+            We are always ready to help you with choosing a console and answer
+            any questions about the R36S console
           </p>
         </div>
 
@@ -108,7 +106,7 @@ const Contact = () => {
             <div className="form__group">
               <label className="form__label" htmlFor="name">
                 <MessageCircle size={16} className="form__icon" />
-                Ваше имя
+                Your name
               </label>
               <input
                 type="text"
@@ -117,7 +115,7 @@ const Contact = () => {
                 className="form__input"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Иван Иванов"
+                placeholder="John Smith"
                 disabled={isSubmitting}
                 required
               />
@@ -144,7 +142,7 @@ const Contact = () => {
             <div className="form__group">
               <label className="form__label" htmlFor="phone">
                 <PhoneCall size={16} className="form__icon" />
-                Телефон
+                Telephone
               </label>
               <input
                 type="tel"
@@ -162,7 +160,7 @@ const Contact = () => {
             <div className="form__group">
               <label className="form__label" htmlFor="message">
                 <MessageCircle size={16} className="form__icon" />
-                Сообщение
+                Message
               </label>
               <textarea
                 id="message"
@@ -170,7 +168,7 @@ const Contact = () => {
                 className="form__textarea"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Напишите ваше сообщение..."
+                placeholder="Write your message..."
                 disabled={isSubmitting}
                 required
               ></textarea>
@@ -182,30 +180,30 @@ const Contact = () => {
               disabled={isSubmitting}
             >
               <Send size={20} className="button__icon" />
-              {isSubmitting ? "Отправка..." : "Отправить сообщение"}
+              {isSubmitting ? "Sending..." : "Send message"}
             </button>
           </form>
 
           <div className="contact__info">
             <div className="info__card">
               <PhoneCall className="info__icon" />
-              <h3 className="info__title">Телефон</h3>
+              <h3 className="info__title">Telephone</h3>
               <p className="info__text">+7 (800) 555-35-35</p>
-              <p className="info__text">Пн-Пт: 9:00 - 18:00</p>
+              <p className="info__text">Mon-Fri: 9:00 - 18:00</p>
             </div>
 
             <div className="info__card">
               <Mail className="info__icon" />
               <h3 className="info__title">Email</h3>
-              <p className="info__text">support@boyhom.com</p>
-              <p className="info__text">sales@boyhom.com</p>
+              <p className="info__text">support@R36S.com</p>
+              <p className="info__text">sales@R36S.com</p>
             </div>
 
             <div className="info__card">
               <MapPin className="info__icon" />
-              <h3 className="info__title">Адрес</h3>
-              <p className="info__text">г. Москва, ул. Примерная, д. 123</p>
-              <p className="info__text">Работаем по всей России</p>
+              <h3 className="info__title">Address</h3>
+              <p className="info__text">Zhejiang, China.</p>
+              <p className="info__text">We work all over the world</p>
             </div>
           </div>
         </div>
