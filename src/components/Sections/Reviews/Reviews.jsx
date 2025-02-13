@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Reviews.css";
 
-// Компонент анимированной стрелки
 const AnimatedArrow = () => (
   <div className="review-card__arrow-wrapper">
     <svg
@@ -18,7 +17,6 @@ const AnimatedArrow = () => (
   </div>
 );
 
-// Компонент кнопки лайка
 const LikeButton = ({ count }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -51,6 +49,7 @@ const Reviews = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
 
+  // Обновленный массив отзывов с поддержкой WebP
   const reviews = [
     {
       id: 1,
@@ -59,7 +58,10 @@ const Reviews = () => {
       author: "AliExpress Shopper",
       date: "21 Aug 2024",
       text: "I just got my hands on the R36S retro console and it's seriously amazing for old-school gaming. The screen is super clear, it runs games smoothly, and battery life is solid. I love how I can load up my favorite classics and play anywhere.",
-      image: "/src/assets/img/reviews/imm_1_1x.jpg",
+      images: {
+        webp: "/src/assets/img/reviews/imm_1_1x.webp",
+        jpeg: "/src/assets/img/reviews/imm_1_1x.jpg",
+      },
       helpful: 12,
       verified: true,
     },
@@ -70,7 +72,10 @@ const Reviews = () => {
       author: "V***h",
       date: "26 Aug 2024",
       text: "After playing with the R36S for a week, I'm really impressed and absolutely delighted. The build quality feels great, and switching between different retro games is super easy. The controls are comfortable for long gaming sessions.",
-      image: "/src/assets/img/reviews/imm_4_1x.jpg",
+      images: {
+        webp: "/src/assets/img/reviews/imm_4_1x.webp",
+        jpeg: "/src/assets/img/reviews/imm_4_1x.jpg",
+      },
       helpful: 8,
       verified: true,
     },
@@ -81,7 +86,10 @@ const Reviews = () => {
       author: "M***z",
       date: "22 Aug 2024",
       text: "The R36S has become my go-to gaming device. I wasn't sure about buying another retro console, but this one surprised me. The screen is bright and sharp, games run without issues, and it's small enough to fit in my pocket.",
-      image: "/src/assets/img/reviews/imm_3_1x.jpg",
+      images: {
+        webp: "/src/assets/img/reviews/imm_3_1x.webp",
+        jpeg: "/src/assets/img/reviews/imm_3_1x.jpg",
+      },
       helpful: 15,
       verified: true,
     },
@@ -92,10 +100,13 @@ const Reviews = () => {
       author: "K***r",
       date: "28 Aug 2024",
       text: "I've been using the R36S for a few weeks now, and I'm genuinely impressed. The 3.5-inch IPS screen delivers crisp visuals, and the build quality feels solid. The dual analog sticks are responsive, making retro gaming a joy.",
-      image: "/src/assets/img/reviews/imm_2_1x.jpg",
+      images: {
+        webp: "/src/assets/img/reviews/imm_2_1x.webp",
+        jpeg: "/src/assets/img/reviews/imm_2_1x.jpg",
+      },
       helpful: 10,
       verified: true,
-      mobileOnly: true, // Новое свойство для мобильной версии
+      mobileOnly: true,
     },
   ];
 
@@ -184,12 +195,15 @@ const Reviews = () => {
                 <p className="review-card__text">{review.text}</p>
 
                 <div className="review-card__image-wrapper">
-                  <img
-                    src={review.image}
-                    alt={`Review ${review.id}`}
-                    className="review-card__image"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcSet={review.images.webp} type="image/webp" />
+                    <img
+                      src={review.images.jpeg}
+                      alt={`Review ${review.id}`}
+                      className="review-card__image"
+                      loading="lazy"
+                    />
+                  </picture>
                   {hoveredCard === review.id && <AnimatedArrow />}
                 </div>
 
