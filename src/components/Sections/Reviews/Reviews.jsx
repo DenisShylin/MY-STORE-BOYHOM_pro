@@ -41,7 +41,7 @@ const LikeButton = ({ count }) => {
       >
         <path d="M14 9V5a3 3 0 0 0-3-3L7 11v10h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
       </svg>
-      <span>Healthy ({count})</span>
+      <span>Helpful ({count})</span>
     </div>
   );
 };
@@ -49,6 +49,7 @@ const LikeButton = ({ count }) => {
 const Reviews = () => {
   const [animatedCards, setAnimatedCards] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
 
   const reviews = [
     {
@@ -58,18 +59,18 @@ const Reviews = () => {
       author: "AliExpress Shopper",
       date: "21 Aug 2024",
       text: "I just got my hands on the R36S retro console and it's seriously amazing for old-school gaming. The screen is super clear, it runs games smoothly, and battery life is solid. I love how I can load up my favorite classics and play anywhere.",
-      image: "/src/assets/img/reviews/image_1.jpg",
+      image: "/src/assets/img/reviews/imm_1_1x.jpg",
       helpful: 12,
       verified: true,
     },
     {
       id: 2,
       rating: 5,
-      color: "Orange 64G",
+      color: "Yellow 128G",
       author: "V***h",
       date: "26 Aug 2024",
       text: "After playing with the R36S for a week, I'm really impressed and absolutely delighted. The build quality feels great, and switching between different retro games is super easy. The controls are comfortable for long gaming sessions.",
-      image: "/src/assets/img/reviews/image_2.jpg",
+      image: "/src/assets/img/reviews/imm_4_1x.jpg",
       helpful: 8,
       verified: true,
     },
@@ -80,11 +81,32 @@ const Reviews = () => {
       author: "M***z",
       date: "22 Aug 2024",
       text: "The R36S has become my go-to gaming device. I wasn't sure about buying another retro console, but this one surprised me. The screen is bright and sharp, games run without issues, and it's small enough to fit in my pocket.",
-      image: "/src/assets/img/reviews/image_3.jpg",
+      image: "/src/assets/img/reviews/imm_3_1x.jpg",
       helpful: 15,
       verified: true,
     },
+    {
+      id: 4,
+      rating: 5,
+      color: "Black 128GB",
+      author: "K***r",
+      date: "28 Aug 2024",
+      text: "I've been using the R36S for a few weeks now, and I'm genuinely impressed. The 3.5-inch IPS screen delivers crisp visuals, and the build quality feels solid. The dual analog sticks are responsive, making retro gaming a joy.",
+      image: "/src/assets/img/reviews/imm_2_1x.jpg",
+      helpful: 10,
+      verified: true,
+      mobileOnly: true, // Новое свойство для мобильной версии
+    },
   ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1200);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -125,6 +147,10 @@ const Reviews = () => {
     </svg>
   );
 
+  const displayedReviews = reviews.filter(
+    (review) => !review.mobileOnly || (review.mobileOnly && isMobile)
+  );
+
   return (
     <section className="reviews" id="reviews">
       <div className="reviews__container">
@@ -134,12 +160,12 @@ const Reviews = () => {
         </div>
 
         <div className="reviews__grid">
-          {reviews.map((review) => (
+          {displayedReviews.map((review) => (
             <div
               key={review.id}
               className={`review-card ${
                 animatedCards.includes(review.id) ? "animate-in" : ""
-              }`}
+              } ${review.mobileOnly ? "mobile-only" : ""}`}
               data-id={review.id}
               onClick={handleReviewClick}
               onMouseEnter={() => setHoveredCard(review.id)}
