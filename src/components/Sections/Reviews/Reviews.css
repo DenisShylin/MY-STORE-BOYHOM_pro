@@ -140,20 +140,15 @@
     margin-bottom: 24px;
 }
 
-.review-card__images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
 .review-card__image-wrapper {
     position: relative;
-    padding-top: 100%;
+    padding-top: 56.25%;
+    /* 16:9 aspect ratio */
     border-radius: 12px;
     overflow: hidden;
     border: 2px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    margin-bottom: 24px;
 }
 
 .review-card:hover .review-card__image-wrapper {
@@ -180,6 +175,19 @@
 .review-card__author {
     font-size: 14px;
     color: #94A3B8;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.review-card__name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.review-card__verified {
+    color: #60A5FA;
 }
 
 .review-card__date {
@@ -193,6 +201,62 @@
     gap: 8px;
     color: #60A5FA;
     font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.review-card__helpful:hover {
+    transform: scale(1.05);
+}
+
+.review-card__arrow-wrapper {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(255, 51, 102, 0.8));
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulseArrow 2s infinite;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.review-card__arrow {
+    color: #60A5FA;
+    animation: moveArrow 1.5s infinite;
+}
+
+@keyframes pulseArrow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(96, 165, 250, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
+    }
+}
+
+@keyframes moveArrow {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
 }
 
 @keyframes starPulse {
@@ -245,6 +309,7 @@
     }
 }
 
+/* Медиа-запросы для адаптивности */
 @media (max-width: 1200px) {
     .reviews__grid {
         grid-template-columns: repeat(2, 1fr);
@@ -263,6 +328,11 @@
     .reviews__title {
         font-size: 36px;
     }
+
+    .review-card__arrow-wrapper {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -274,5 +344,15 @@
         padding: 24px;
     }
 
+    .review-card__arrow-wrapper {
+        width: 32px;
+        height: 32px;
+        bottom: 15px;
+        right: 15px;
+    }
 
+    .review-card__arrow {
+        width: 20px;
+        height: 20px;
+    }
 }
