@@ -6,11 +6,20 @@
     background: transparent;
     transition: all 0.3s ease;
     z-index: 1000;
+    transform: translateY(0);
 }
 
 .header.scrolled {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+.header.visible {
+    transform: translateY(0);
 }
 
 .nav {
@@ -32,32 +41,6 @@
     display: inline-block;
 }
 
-/* .logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    background: linear-gradient(45deg,
-            #FF3366,
-            #FF6B6B,
-            #4CAF50,
-            #2196F3,
-            #FF3366);
-    background-size: 400% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    animation: gradientFlow 3s linear infinite;
-}
-
-@keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    100% {
-        background-position: 400% 50%;
-    }
-} */
 .desktop-menu {
     display: flex;
     gap: 2rem;
@@ -84,7 +67,6 @@
     cursor: pointer;
     position: relative;
     z-index: 1001;
-    /*   */
 }
 
 .burger-line {
@@ -93,7 +75,6 @@
     height: 2px;
     background: #fff;
     margin: 6px 0;
-    /* Добавляем отступ между линиями */
     position: relative;
     transition: all 0.3s ease;
 }
@@ -111,7 +92,6 @@
 
 .burger-line::before {
     top: -8px;
-    /* Отступ для верхней линии */
 }
 
 .burger-line.open {
@@ -120,7 +100,6 @@
 
 .burger-line::after {
     bottom: -8px;
-    /* Отступ для нижней линии */
 }
 
 .burger-line.open::before {
