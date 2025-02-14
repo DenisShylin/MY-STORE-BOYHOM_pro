@@ -121,6 +121,8 @@
     cursor: pointer;
     letter-spacing: 0.5px;
     font-family: 'Orbitron', sans-serif;
+    white-space: nowrap;
+    min-width: max-content;
 }
 
 .hero__button--primary {
@@ -166,8 +168,8 @@
 }
 
 .hero__button--secondary:hover {
-    border-color: #FF3366;
-    background: rgba(255, 51, 102, 0.15);
+    border-color: #32d15f;
+    background: rgba(28, 159, 72, 0.15);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 51, 102, 0.2);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -246,14 +248,24 @@
     transform: scale(1.02);
 }
 
-/* Медиа-запросы */
-@media (max-width: 1200px) {
+/* Media Queries */
+@media (max-width: 1280px) {
     .hero__title {
-        font-size: 48px;
+        font-size: 52px;
     }
 
     .hero__title-line {
-        font-size: 46px;
+        font-size: 50px;
+    }
+
+    .hero__button {
+        padding: 16px 28px;
+        font-size: 16px;
+    }
+
+    .hero__button--primary {
+        padding: 16px 32px;
+        font-size: 17px;
     }
 }
 
@@ -284,6 +296,11 @@
     }
 
     .hero__button {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+
+    .hero__button--primary {
         padding: 14px 28px;
         font-size: 16px;
     }
@@ -320,12 +337,21 @@
     .hero__buttons {
         flex-direction: column;
         gap: 12px;
+        width: 100%;
     }
 
     .hero__button {
         width: 100%;
-        padding: 14px 28px;
+        padding: 14px 24px;
         font-size: 15px;
+        min-width: unset;
+        white-space: normal;
+    }
+
+    .hero__button-text {
+        justify-content: center;
+        padding: 8px 18px;
+        width: 100%;
     }
 
     .hero__current-price {
@@ -341,7 +367,7 @@
     }
 }
 
-/* Анимации */
+/* Animations */
 @keyframes contentFadeIn {
     to {
         opacity: 1;

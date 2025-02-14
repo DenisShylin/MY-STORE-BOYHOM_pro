@@ -1,10 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import heroImage1x from "../../../assets/img/hero/image_1x.png";
 import heroImage2x from "../../../assets/img/hero/image_2x.png";
 import "./Hero.css";
 
 const Hero = () => {
   const titleRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1280);
+
+  const desktopDescription =
+    "Discover the world of retro gaming with the R36S portable console. 15,000+ classic games, a powerful processor and a bright IPS screen - everything for an unforgettable gaming adventure!";
+  const mobileDescription =
+    "Relive gaming history in the palm of your hands with the R36S";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,7 +26,16 @@ const Hero = () => {
       observer.observe(titleRef.current);
     }
 
-    return () => observer.disconnect();
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleBuyClick = () => {
@@ -65,21 +80,21 @@ const Hero = () => {
             <span className="hero__title-line">console R36S</span>
           </h1>
           <p className="hero__description">
-            Discover the world of retro gaming with the BOYHOM R36S portable
-            console. 15,000+ classic games, a powerful processor and a bright
-            IPS screen - everything for an unforgettable gaming adventure!
+            {isDesktop ? desktopDescription : mobileDescription}
           </p>
 
-          <div className="hero__pricing">
-            <div className="hero__price-wrapper">
-              <span className="hero__original-price">US $108.06</span>
-              <span className="hero__current-price">
-                US 35.48
-                <span style={{ fontSize: "24px" }}>$</span>
-              </span>
+          {isDesktop && (
+            <div className="hero__pricing">
+              <div className="hero__price-wrapper">
+                <span className="hero__original-price">US $108.06</span>
+                <span className="hero__current-price">
+                  US 35.48
+                  <span style={{ fontSize: "24px" }}>$</span>
+                </span>
+              </div>
+              <span className="hero__discount-badge">-68%</span>
             </div>
-            <span className="hero__discount-badge">-68%</span>
-          </div>
+          )}
 
           <div className="hero__buttons">
             <button
