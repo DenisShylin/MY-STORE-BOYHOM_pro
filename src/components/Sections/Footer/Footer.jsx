@@ -82,7 +82,7 @@ const Footer = () => {
 
           <div className="footer__bottom">
             <div className="footer__copyright">
-              © 2025 <a href="/">R36S</a>. All rights reserved.
+              <a href="/">© 2025 R36S. All rights reserved.</a>
             </div>
           </div>
         </div>

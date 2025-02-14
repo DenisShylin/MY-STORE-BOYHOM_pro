@@ -13,20 +13,32 @@ const PartnershipModal = ({ isOpen, onClose }) => {
 
         <h2 className="partnership-modal-title">Partnership with R36S</h2>
 
+        <h2 className="partnership-modal-title">COMPANY INFORMATION</h2>
+
         <div className="partnership-section">
-          <h3 className="partnership-section-title">Company Information</h3>
           <p className="partnership-text">
-            R36S brand was founded on February 28, 2007 in Zhejiang Province,
-            China. The company employs 11-50 people. The company`s annual
-            revenue: 50-100 million US dollars.
+            <strong>R36S brand was founded</strong> on February 28,{" "}
+            <strong>2007</strong> in Zhejiang Province, China.
           </p>
           <p className="partnership-text">
-            Markets: Western Europe 11% East Asia 11% Middle East 11%
+            <strong>The company employs</strong> 11-50 people.
+          </p>
+          <p className="partnership-text">
+            <strong>Main products:</strong> handheld consoles, TV game consoles,
+            game controllers.
+          </p>
+          <p className="partnership-text">
+            <strong>The company`s annual revenue:</strong> 50-100 million US
+            dollars.
+          </p>
+          <p className="partnership-text">
+            <strong>R36S markets:</strong> Western Europe 11% East Asia 11%
+            Middle East 11%
           </p>
         </div>
 
         <div className="partnership-section">
-          <h3 className="partnership-section-title">R36S Wholesale Trade</h3>
+          <h3 className="partnership-section-title-2">R36S Wholesale Trade</h3>
           <p className="partnership-text">
             Wholesale prices, representative office registration and
             distribution:
@@ -37,7 +49,7 @@ const PartnershipModal = ({ isOpen, onClose }) => {
               rel="noopener noreferrer"
             >
               {" "}
-              www.boyhom.ali.com
+              www.R36S.ali.com
             </a>
           </p>
         </div>
@@ -138,7 +150,7 @@ const PartnershipModal = ({ isOpen, onClose }) => {
         </div>
 
         <div className="footer__copyright">
-          © 2025 <a href="/">R36S</a>. All rights reserved.
+          <a href="/">© 2025 R36S. All rights reserved.</a>
         </div>
       </div>
     </div>
