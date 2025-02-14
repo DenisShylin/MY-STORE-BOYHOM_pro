@@ -5,15 +5,30 @@ import "./Header.css";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (!mobile && isMenuOpen) {
+        setIsMenuOpen(false);
+        document.body.style.overflow = "unset";
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,7 +46,6 @@ const Header = () => {
             R36S
           </a>
 
-          {/* Десктопне меню */}
           <ul className="desktop-menu">
             <li>
               <a className="our-menu-link" href="#features-r36s">
@@ -60,14 +74,22 @@ const Header = () => {
             </li>
           </ul>
 
-          {/* Бургер кнопка */}
-          <button className="burger-btn" onClick={toggleMenu}>
+          <button
+            className="burger-btn"
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle menu"
+          >
             <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
           </button>
         </nav>
       </header>
 
-      <MobileMenu isOpen={isMenuOpen} onClose={toggleMenu} />
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={toggleMenu}
+        isMobile={isMobile}
+      />
     </>
   );
 };
