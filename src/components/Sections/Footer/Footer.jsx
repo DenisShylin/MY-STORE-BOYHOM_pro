@@ -15,8 +15,8 @@ const Footer = () => {
                 R36S
               </a>
               <p className="footer__description">
-                Откройте для себя мир ретро-гейминга с портативной консолью
-                R36S. Тысячи классических игр в вашем кармане!
+                Discover the world of retro gaming with a portable console R36S.
+                Thousands of classic games in your pocket!
               </p>
               <div className="footer__social">
                 <a
@@ -35,75 +35,30 @@ const Footer = () => {
             </div>
 
             <div className="footer__column">
-              <h3 className="footer__title">Продукты</h3>
+              <h3 className="footer__title">Products</h3>
               <ul className="footer__list">
-                <li className="footer__item">
-                  <a href="#features" className="footer__link">
-                    Особенности
-                  </a>
-                </li>
-                <li className="footer__item">
-                  <a href="#catalog" className="footer__link">
-                    Каталог игр
-                  </a>
-                </li>
-                <li className="footer__item">
-                  <a href="#accessories" className="footer__link">
-                    Аксессуары
-                  </a>
-                </li>
                 <li className="footer__item">
                   <a href="#reviews" className="footer__link">
-                    Отзывы
+                    Reviews
                   </a>
                 </li>
               </ul>
             </div>
 
             <div className="footer__column">
-              <h3 className="footer__title">Поддержка</h3>
+              <h3 className="footer__title">Support</h3>
               <ul className="footer__list">
-                <li className="footer__item">
-                  <a href="#faq" className="footer__link">
-                    FAQ
-                  </a>
-                </li>
-                <li className="footer__item">
-                  <a href="#delivery" className="footer__link">
-                    Доставка
-                  </a>
-                </li>
-                <li className="footer__item">
-                  <a href="#warranty" className="footer__link">
-                    Гарантия
-                  </a>
-                </li>
                 <li className="footer__item">
                   <a href="#contact" className="footer__link">
-                    Контакты
+                    Contacts
                   </a>
                 </li>
               </ul>
             </div>
 
             <div className="footer__column">
-              <h3 className="footer__title">Компания</h3>
+              <h3 className="footer__title">Company</h3>
               <ul className="footer__list">
-                <li className="footer__item">
-                  <a href="#about" className="footer__link">
-                    О нас
-                  </a>
-                </li>
-                <li className="footer__item">
-                  <a href="#blog" className="footer__link">
-                    Блог
-                  </a>
-                </li>
-                <li className="footer__item">
-                  <a href="#careers" className="footer__link">
-                    Вакансии
-                  </a>
-                </li>
                 <li className="footer__item">
                   <button
                     onClick={() => setIsModalOpen(true)}
@@ -116,7 +71,7 @@ const Footer = () => {
                       textAlign: "left",
                     }}
                   >
-                    Партнёрство
+                    Partnership
                   </button>
                 </li>
               </ul>

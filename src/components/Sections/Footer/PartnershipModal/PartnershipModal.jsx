@@ -1,186 +1,144 @@
-import { useState } from "react";
-import { X, Mail, Phone, Building, Globe } from "lucide-react";
+import { X } from "lucide-react";
 import "./PartnershipModal.css";
 
 const PartnershipModal = ({ isOpen, onClose }) => {
-  const [formData, setFormData] = useState({
-    company: "",
-    name: "",
-    email: "",
-    phone: "",
-    website: "",
-    message: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    onClose();
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-container animate-modal">
-        <div className="modal-content">
-          {/* Header */}
-          <div className="modal-header">
-            <h2 className="modal-title">Станьте нашим партнёром</h2>
-            <button onClick={onClose} className="close-button">
-              <X className="close-icon" />
-            </button>
-          </div>
+    <div className={`partnership-modal-overlay ${isOpen ? "active" : ""}`}>
+      <div className={`partnership-modal-content ${isOpen ? "active" : ""}`}>
+        <button className="partnership-modal-close" onClick={onClose}>
+          <X size={24} />
+        </button>
 
-          {/* Content */}
-          <div className="form-grid">
-            {/* Left side - Form */}
-            <form onSubmit={handleSubmit} className="form-section">
-              <div className="form-group">
-                <label className="form-label">Название компании</label>
-                <div className="relative">
-                  <Building className="input-icon" />
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="ООО Компания"
-                    required
-                  />
-                </div>
-              </div>
+        <h2 className="partnership-modal-title">Partnership with R36S</h2>
 
-              <div className="form-group">
-                <label className="form-label">Контактное лицо</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="form-input"
-                  placeholder="Иван Иванов"
-                  required
-                />
-              </div>
+        <div className="partnership-section">
+          <h3 className="partnership-section-title">Company Information</h3>
+          <p className="partnership-text">
+            R36S brand was founded on February 28, 2007 in Zhejiang Province,
+            China. The company employs 11-50 people. The company`s annual
+            revenue: 50-100 million US dollars.
+          </p>
+          <p className="partnership-text">
+            Markets: Western Europe 11% East Asia 11% Middle East 11%
+          </p>
+        </div>
 
-              <div className="form-group">
-                <label className="form-label">Email</label>
-                <div className="relative">
-                  <Mail className="input-icon" />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="contact@company.com"
-                    required
-                  />
-                </div>
-              </div>
+        <div className="partnership-section">
+          <h3 className="partnership-section-title">R36S Wholesale Trade</h3>
+          <p className="partnership-text">
+            Wholesale prices, representative office registration and
+            distribution:
+            <a
+              href="https://www.alibaba.com/product-detail/R36S-Retro-3-5-Inch-IPS_1600984248000.html"
+              className="partnership-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              www.boyhom.ali.com
+            </a>
+          </p>
+        </div>
 
-              <div className="form-group">
-                <label className="form-label">Телефон</label>
-                <div className="relative">
-                  <Phone className="input-icon" />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="+7 (999) 123-45-67"
-                  />
-                </div>
-              </div>
+        <div className="partnership-section">
+          <h3 className="partnership-section-title">
+            Introduction to R36S Retro Handheld Game Console
+          </h3>
+          <p className="partnership-text">
+            The R36S distributor network actively expands worldwide, bringing
+            nostalgic gaming experiences to enthusiasts everywhere. Initially,
+            the R36S headquarters established its presence in Asia, but now the
+            brand confidently moves into international markets. Moreover, the
+            company welcomes new partnerships across different continents,
+            making the R36S Retro Handheld Game Console increasingly accessible
+            to global consumers. Furthermore, the brand`s commitment to quality
+            and affordability has positioned it as a strong competitor in the
+            retro gaming market.
+          </p>
+        </div>
 
-              <div className="form-group">
-                <label className="form-label">Веб-сайт</label>
-                <div className="relative">
-                  <Globe className="input-icon" />
-                  <input
-                    type="url"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="https://example.com"
-                  />
-                </div>
-              </div>
+        <div className="partnership-section">
+          <h3 className="partnership-section-title">
+            Global Distribution Opportunities
+          </h3>
+          <p className="partnership-text">
+            As an exclusive distributor for R36S, you can tap into emerging
+            markets across North America, Europe, and Australia. Meanwhile, the
+            R36S dealer network continues to grow in South America and Africa.
+            Subsequently, the brand`s presence strengthens in key markets like
+            the United Kingdom, Germany, France, and Spain. Additionally, R36S
+            has successfully penetrated markets in Canada, Mexico, and Brazil.
+            Therefore, potential partners can explore various territories with
+            significant growth potential.
+          </p>
+        </div>
 
-              <div className="form-group">
-                <label className="form-label">Сообщение</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="4"
-                  className="form-textarea form-input"
-                  placeholder="Расскажите о вашем предложении..."
-                  required
-                ></textarea>
-              </div>
+        <div className="partnership-section">
+          <h3 className="partnership-section-title">
+            Partnership Benefits and Support
+          </h3>
+          <p className="partnership-text">
+            Collaboration with R36S offers comprehensive support for new
+            distributors and dealers. First, the R36S contact number connects
+            partners directly with dedicated support teams. Then, partners
+            receive extensive training and marketing materials. Consequently,
+            this enables smooth market entry and operation. Besides, the company
+            provides competitive pricing structures and flexible minimum order
+            quantities. Hence, partners can effectively manage inventory and
+            maximize profitability.
+          </p>
+        </div>
 
-              <button type="submit" className="submit-button">
-                Отправить заявку
-              </button>
-            </form>
+        <div className="partnership-section">
+          <h3 className="partnership-section-title">
+            E-commerce and Marketplace Integration
+          </h3>
+          <p className="partnership-text">
+            The R36S distributor network thrives on major e-commerce platforms
+            worldwide. Currently, partners successfully sell through Amazon,
+            eBay, and regional marketplaces. Similarly, many dealers operate
+            dedicated online stores featuring R36S products. Nevertheless, the
+            brand maintains strict quality control and pricing policies. Thus,
+            partners can maintain healthy profit margins while ensuring customer
+            satisfaction.
+          </p>
+        </div>
 
-            {/* Right side - Info */}
-            <div className="info-section">
-              <div>
-                <h3 className="info-title">Преимущества партнёрства</h3>
-                <ul className="info-list">
-                  <li className="info-item">
-                    <span className="info-bullet bullet-blue"></span>
-                    <span>
-                      Доступ к эксклюзивным продуктам и специальным ценам
-                    </span>
-                  </li>
-                  <li className="info-item">
-                    <span className="info-bullet bullet-purple"></span>
-                    <span>Маркетинговая и техническая поддержка</span>
-                  </li>
-                  <li className="info-item">
-                    <span className="info-bullet bullet-blue"></span>
-                    <span>Участие в совместных мероприятиях и акциях</span>
-                  </li>
-                  <li className="info-item">
-                    <span className="info-bullet bullet-purple"></span>
-                    <span>Обучение и сертификация сотрудников</span>
-                  </li>
-                </ul>
-              </div>
+        <div className="partnership-section">
+          <h3 className="partnership-section-title">
+            Regional Market Strategies
+          </h3>
+          <p className="partnership-text">
+            An exclusive distributor can develop tailored strategies for
+            specific regions. Meanwhile, the R36S headquarters provides market
+            insights and trend analysis. Particularly, the brand excels in
+            adapting to local gaming preferences and retail environments.
+            Indeed, successful partnerships have emerged in diverse markets from
+            Singapore to Sweden. Afterward, partners can expand their territory
+            based on performance and market demand.
+          </p>
+        </div>
 
-              <div>
-                <h3 className="info-title">Требования к партнёрам</h3>
-                <ul className="info-list">
-                  <li className="info-item">
-                    <span className="info-bullet bullet-blue"></span>
-                    <span>Опыт работы в сфере электроники или гейминга</span>
-                  </li>
-                  <li className="info-item">
-                    <span className="info-bullet bullet-purple"></span>
-                    <span>Наличие собственного канала продаж</span>
-                  </li>
-                  <li className="info-item">
-                    <span className="info-bullet bullet-blue"></span>
-                    <span>Готовность к активному продвижению продукции</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+        <div className="partnership-section">
+          <h3 className="partnership-section-title">
+            Future Growth and Development
+          </h3>
+          <p className="partnership-text">
+            Cooperation with R36S opens doors to long-term business growth.
+            Presently, the brand develops new product lines and gaming features.
+            In addition, R36S dealers benefit from regular product updates and
+            innovations. Furthermore, the R36S contact number facilitates
+            ongoing communication and support. Finally, partners join a global
+            network of successful gaming retailers and distributors. Yet, the
+            brand maintains its commitment to quality and customer satisfaction
+            across all markets.
+          </p>
+        </div>
+
+        <div className="footer__copyright">
+          © 2025 <a href="/">R36S</a>. All rights reserved.
         </div>
       </div>
     </div>

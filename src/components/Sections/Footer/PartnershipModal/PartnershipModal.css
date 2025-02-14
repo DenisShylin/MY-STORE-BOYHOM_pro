@@ -1,207 +1,179 @@
-/* PartnershipModal/PartnershipModal.css */
-
-.modal-overlay {
+.partnership-modal-overlay {
     position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.partnership-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.partnership-modal-content {
+    background-color: #0F172A;
+    background-image:
+        radial-gradient(at 0% 100%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(255, 51, 102, 0.1) 0px, transparent 50%);
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.partnership-modal-content.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.partnership-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.partnership-modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.partnership-modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.partnership-modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.partnership-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #94A3B8;
+    cursor: pointer;
+    padding: 8px;
+    transition: all 0.3s ease;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.modal-container {
-    background-color: #0F172A;
-    background-image:
-        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(255, 51, 102, 0.1) 0px, transparent 50%);
-    width: 100%;
-    max-width: 56rem;
-    margin: 1rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+.partnership-modal-close:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
 }
 
-.modal-content {
-    padding: 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .modal-content {
-        padding: 2rem;
-    }
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.modal-title {
-    font-size: 1.875rem;
+.partnership-modal-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
     font-weight: 700;
-    background: linear-gradient(135deg, #60A5FA 0%, #A855F7 100%);
+    color: #fff;
+    margin-bottom: 24px;
+    text-align: center;
+    background: linear-gradient(135deg, #fff 0%, #94A3B8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.close-button {
-    padding: 0.5rem;
-    border-radius: 9999px;
-    transition: background-color 0.3s;
+.partnership-section {
+    margin-bottom: 32px;
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
 }
 
-.close-button:hover {
-    background-color: #1E293B;
+.partnership-section:nth-child(2) {
+    animation-delay: 0.1s;
 }
 
-.close-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: #94A3B8;
+.partnership-section:nth-child(3) {
+    animation-delay: 0.2s;
 }
 
-.close-button:hover .close-icon {
+.partnership-section-title {
+    font-size: 18px;
+    font-weight: 600;
     color: #fff;
+    margin-bottom: 16px;
+    font-family: 'Orbitron', sans-serif;
 }
 
-.form-grid {
+.partnership-text {
+    color: #94A3B8;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.partnership-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
 }
 
-@media (min-width: 768px) {
-    .form-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.partnership-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease;
 }
 
-.form-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+.partnership-card:hover {
+    transform: translateY(-4px);
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+.partnership-link {
+    color: #60A5FA;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.form-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #94A3B8;
+.partnership-link:hover {
+    color: #3b82f6;
 }
 
-.form-input {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    padding-left: 2.5rem;
-    background-color: rgba(30, 41, 59, 0.5);
-    border: 1px solid #334155;
-    border-radius: 0.5rem;
-    color: #fff;
-    transition: all 0.3s;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: #3B82F6;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
-}
-
-.input-icon {
-    position: absolute;
-    left: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1.25rem;
-    height: 1.25rem;
-    color: #64748B;
-}
-
-.form-textarea {
-    resize: none;
-    min-height: 8rem;
-}
-
-.submit-button {
-    width: 100%;
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-    color: white;
-    font-weight: 500;
-    border-radius: 0.5rem;
-    transition: all 0.3s;
-}
-
-.submit-button:hover {
-    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
-    transform: translateY(-1px);
-}
-
-.submit-button:active {
-    transform: translateY(0);
-}
-
-/* Анимация появления */
-@keyframes modalAppear {
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: scale(0.95) translateY(-10px);
+        transform: translateY(10px);
     }
 
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+        transform: translateY(0);
     }
 }
 
-.animate-modal {
-    animation: modalAppear 0.3s ease-out;
-}
+@media (max-width: 768px) {
+    .partnership-modal-content {
+        padding: 24px;
+        width: 95%;
+    }
 
-/* Стили для правой информационной части */
-.info-section {
-    color: #94A3B8;
-}
+    .partnership-modal-title {
+        font-size: 20px;
+    }
 
-.info-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 1rem;
-}
-
-.info-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-}
-
-.info-bullet {
-    width: 0.375rem;
-    height: 0.375rem;
-    border-radius: 9999px;
-    margin-top: 0.5rem;
-}
-
-.bullet-blue {
-    background-color: #3B82F6;
-}
-
-.bullet-purple {
-    background-color: #A855F7;
+    .partnership-grid {
+        grid-template-columns: 1fr;
+    }
 }
