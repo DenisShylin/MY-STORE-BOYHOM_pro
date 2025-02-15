@@ -1,130 +1,351 @@
+import { useState } from "react";
+import { ChevronRight, Download, FileDown } from "lucide-react";
 import "./Products.css";
 
 const Products = () => {
-  const reviews = [
+  const [activeSection, setActiveSection] = useState("main");
+
+  const handleSectionClick = (sectionId) => {
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const sections = [
     {
-      id: 1,
-      rating: 5,
-      color: "Purple 64GB",
-      author: "AliExpress Shopper",
-      date: "21 Aug 2024",
-      text: "Regarding shipping, everything great and in time even arrived a few days before. Regarding the video console, incredible. its going great. I only recommend changing the SD you bring.",
-      images: [
-        "/src/assets/img/reviews/review1-1.jpg",
-        "/src/assets/img/reviews/review1-2.jpg",
-        "/src/assets/img/reviews/review1-2.jpg",
-      ],
-      helpful: 0,
+      id: "latest-version",
+      title: "Latest Firmware Version",
+      content: {
+        version: "v1.0.4",
+        date: "April 13, 2024",
+        description:
+          "This major update includes numerous stability improvements, new features, and performance optimizations. The update is recommended for all R36S users.",
+        highlights: [
+          "Improved overall system stability",
+          "Optimized memory management",
+          "Added support for new formats",
+          "Fixed critical bugs from previous versions",
+        ],
+      },
     },
     {
-      id: 2,
-      rating: 5,
-      color: "Orange 64G",
-      author: "V***h",
-      date: "26 Aug 2024",
-      text: "For their own pennies (and then more according to the excise tax)a topper, for nostalguvati, or just a Mati, I will kill a lot of people on bagatoh platforms. The city cable does not use the vikidati-i can do it like that, if we do it at home, the console will charge it through it.",
-      images: [
-        "/src/assets/img/reviews/review2-1.jpg",
-        "/src/assets/img/reviews/review2-2.jpg",
+      id: "new-features",
+      title: "Main New Features",
+      content: [
+        "Bluetooth Support (A2DP audio and BLE HID)",
+        "Vulkan Linux Driver Support (updated GLES/Vulkan libraries 1.11 → 1.19)",
+        "Media Player with Hardware Decoding",
+        "Moonlight Streaming Support",
+        "Advanced Display Color Settings",
+        "Additional Language Support",
       ],
-      helpful: 1,
     },
     {
-      id: 3,
-      rating: 5,
-      color: "White 64GB",
-      author: "M***z",
-      date: "22 Aug 2024",
-      text: "Pretty good in my opinion, its operating system is pretty well optimized. The catalog of games is extensive and well stocked. I would have liked them to add games such as Resident Evil or Silent Hill, even so I have the possibility to add it thanks to the expansion port MicroSD. Highly recommended 10/10",
-      images: [
-        "/src/assets/img/reviews/review3-1.jpg",
-        "/src/assets/img/reviews/review3-2.jpg",
-        "/src/assets/img/reviews/review3-3.jpg",
+      id: "media-player",
+      title: "Media Player Features",
+      content: [
+        "Hardware video decoding support up to 4K",
+        "Latest version built-in media codecs",
+        "Automatic subtitle detection and playback",
+        "Playlists and playback queues",
+        "Network streaming support",
+        "Customizable audio and video profiles",
       ],
-      helpful: 4,
+    },
+    {
+      id: "video-formats",
+      title: "Video Formats",
+      content: {
+        containers: ["MKV", "MP4", "AVI", "MOV", "WebM", "TS", "M2TS"],
+        codecs: ["H.264/AVC", "H.265/HEVC", "VP9", "MPEG-2", "MPEG-4"],
+        resolutions: [
+          "Up to 4K (3840x2160)",
+          "Full HD (1920x1080)",
+          "HD (1280x720)",
+        ],
+        features: [
+          "HDR10 Support",
+          "Hardware Decoding",
+          "Adaptive Bitrate",
+          "Various Frame Rates",
+        ],
+      },
+    },
+    {
+      id: "audio-formats",
+      title: "Audio Formats",
+      content: {
+        formats: ["MP3", "FLAC", "WAV", "AAC", "OGG", "OPUS", "APE"],
+        features: [
+          "High-quality playback up to 24bit/192kHz",
+          "Digital equalizer support",
+          "Various playback modes",
+          "Gapless playback for seamless reproduction",
+        ],
+        bluetooth: [
+          "A2DP for high-quality wireless audio",
+          "aptX and aptX HD codecs",
+          "AAC for Apple devices",
+          "Low latency audio transmission",
+        ],
+      },
+    },
+    {
+      id: "system-improvements",
+      title: "System Improvements",
+      content: {
+        performance: [
+          "CPU and GPU usage optimization",
+          "Improved memory management",
+          "Reduced power consumption",
+          "Faster system boot",
+        ],
+        stability: [
+          "Fixed long-term usage issues",
+          "Improved Bluetooth connection stability",
+          "Optimized SD card handling",
+          "Enhanced game save reliability",
+        ],
+        interface: [
+          "Updated user interface",
+          "New themes",
+          "Improved menu navigation",
+          "Hotkey support",
+        ],
+      },
+    },
+    {
+      id: "downloads",
+      title: "Available Downloads",
+      content: null,
+    },
+    {
+      id: "related",
+      title: "You May Also Like",
+      content: null,
     },
   ];
 
-  const handleReviewClick = () => {
-    window.open(
-      "https://www.aliexpress.com/item/1005007226123844.html#feedback",
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
+  const downloads = [
+    {
+      file: "R36S_tg5040_20240413_v1.0.4_hotfix6.7z",
+      date: "2024.04.13",
+      version: "v1.0.4",
+    },
+    {
+      file: "R36S_tg5040_20231222_v1.0.3.7z",
+      date: "2023.12.22",
+      version: "v1.0.3",
+    },
+    {
+      file: "R36S_tg5040_20231116_1539_v1.0.2.7z",
+      date: "2023.11.16",
+      version: "v1.0.2",
+    },
+    {
+      file: "R36S_tg5040_20231105_v1.0.0.7z",
+      date: "2023.11.05",
+      version: "v1.0.0",
+    },
+  ];
 
-  return (
-    <section className="products" id="products">
-      <div className="products__container">
-        <div className="products__header">
-          <div className="products__labels">
-            <span className="products__label">Отзывы</span>
-            <span className="products__label products__label--outline">
-              R36S
-            </span>
-          </div>
-          <h2 className="products__title">Что говорят наши клиенты</h2>
-          <p className="products__description">
-            Реальные отзывы покупателей о консоли R36S с AliExpress. Узнайте,
-            почему тысячи геймеров выбирают нашу консоль.
-          </p>
-        </div>
+  const relatedGuides = [
+    {
+      title: "R36S Smart Pro Firmware Guide",
+      description: "Latest firmware (v1.0.4 - April 13, 2024)",
+      code: "Major 023",
+    },
+    {
+      title: "R36S S Model Firmware Guide",
+      description: "Firmware update instructions",
+      code: "038",
+    },
+    {
+      title: "PARTNERSHIP WITH R36S",
+      description: "COMPANY INFORMATION The R36S brand was",
+      code: "0939",
+    },
+  ];
 
-        <div className="products__reviews">
-          {reviews.map((review) => (
-            <div
-              key={review.id}
-              className="review-card"
-              onClick={handleReviewClick}
-            >
-              <div className="review-card__header">
-                <div className="review-card__rating">
-                  {[...Array(5)].map((_, index) => (
-                    <svg
-                      key={index}
-                      className="review-card__star"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill={index < review.rating ? "currentColor" : "none"}
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                    </svg>
-                  ))}
+  const renderSectionContent = (section) => {
+    switch (section.id) {
+      case "latest-version":
+        return (
+          <div className="versionInfo">
+            <div className="versionHeader">
+              <h3>
+                {section.content.version} ({section.content.date})
+              </h3>
+            </div>
+            <p className="versionDescription">{section.content.description}</p>
+            <div className="versionHighlights">
+              {section.content.highlights.map((highlight, index) => (
+                <div key={index} className="featureItem">
+                  <span className="featureBullet">•</span>
+                  <span>{highlight}</span>
                 </div>
-                <span className="review-card__color">{review.color}</span>
+              ))}
+            </div>
+          </div>
+        );
+
+      case "new-features":
+      case "media-player":
+        return (
+          <div className="featureList">
+            {section.content.map((feature, index) => (
+              <div key={index} className="featureItem">
+                <span className="featureBullet">•</span>
+                <span>{feature}</span>
               </div>
+            ))}
+          </div>
+        );
 
-              <p className="review-card__text">{review.text}</p>
+      case "video-formats":
+      case "audio-formats":
+        return (
+          <div className="formatInfo">
+            {Object.entries(section.content).map(([key, value]) => (
+              <div key={key} className="formatSection">
+                <h4 className="formatTitle">
+                  {key.charAt(0).toUpperCase() + key.slice(1)}:
+                </h4>
+                {Array.isArray(value) ? (
+                  <div className="formatList">
+                    {value.map((item, index) => (
+                      <div key={index} className="featureItem">
+                        <span className="featureBullet">•</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p>{value}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        );
 
-              {review.images.length > 0 && (
-                <div className="review-card__images">
-                  {review.images.slice(0, 3).map((image, index) => (
-                    <div key={index} className="review-card__image-wrapper">
-                      <img
-                        src={image}
-                        alt={`Review ${review.id} image ${index + 1}`}
-                        className="review-card__image"
-                      />
+      case "system-improvements":
+        return (
+          <div className="systemImprovements">
+            {Object.entries(section.content).map(([key, improvements]) => (
+              <div key={key} className="improvementCategory">
+                <h4 className="categoryTitle">
+                  {key.charAt(0).toUpperCase() + key.slice(1)}:
+                </h4>
+                <div className="improvementList">
+                  {improvements.map((improvement, index) => (
+                    <div key={index} className="featureItem">
+                      <span className="featureBullet">•</span>
+                      <span>{improvement}</span>
                     </div>
                   ))}
                 </div>
-              )}
-
-              <div className="review-card__footer">
-                <div className="review-card__author">
-                  <span className="review-card__name">{review.author}</span>
-                  <span className="review-card__date">{review.date}</span>
-                </div>
-                <div className="review-card__helpful">
-                  <span>Helpful ({review.helpful})</span>
-                </div>
               </div>
+            ))}
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <section className="guide">
+      <div className="guideBackground"></div>
+
+      <div className="container">
+        <div className="content">
+          {/* Side Navigation */}
+          <nav className="nav">
+            <h2 className="navTitle">Contents</h2>
+            <div className="navList">
+              {sections.map(({ id, title }) => (
+                <button
+                  key={id}
+                  className={`navItem ${
+                    activeSection === id ? "navItemActive" : ""
+                  }`}
+                  onClick={() => handleSectionClick(id)}
+                >
+                  <ChevronRight className="navIcon" />
+                  <span>{title}</span>
+                </button>
+              ))}
             </div>
-          ))}
+          </nav>
+
+          {/* Main Content */}
+          <main className="main">
+            <h1 className="title">R36S Console Firmware Guide</h1>
+
+            {/* Dynamic Sections */}
+            <div className="dynamicSections">
+              {sections.map((section) => (
+                <section
+                  key={section.id}
+                  id={section.id}
+                  className={`section ${
+                    activeSection === section.id ? "sectionActive" : ""
+                  }`}
+                >
+                  <h2 className="sectionTitle">{section.title}</h2>
+                  {renderSectionContent(section)}
+                </section>
+              ))}
+            </div>
+
+            {/* Downloads Section - Always Visible */}
+            <section
+              id="downloads"
+              className="section staticSection"
+              style={{ scrollMarginTop: "20px" }}
+            >
+              <h2 className="sectionTitle">Available Downloads</h2>
+              <div className="downloadList">
+                {downloads.map((item) => (
+                  <div key={item.file} className="downloadCard">
+                    <div className="downloadInfo">
+                      <FileDown className="downloadIcon" />
+                      <div>
+                        <div className="downloadFilename">{item.file}</div>
+                        <div className="downloadMeta">
+                          Update: {item.date} • {item.version}
+                        </div>
+                      </div>
+                    </div>
+                    <button className="downloadButton">
+                      <Download className="buttonIcon" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Related Guides - Always Visible */}
+            <section
+              id="related"
+              className="section staticSection"
+              style={{ scrollMarginTop: "20px" }}
+            >
+              <h2 className="sectionTitle">You May Also Like</h2>
+              <div className="relatedGrid">
+                {relatedGuides.map((guide) => (
+                  <div key={guide.title} className="relatedCard">
+                    <h3 className="relatedTitle">{guide.title}</h3>
+                    <p className="relatedDesc">{guide.description}</p>
+                    <span className="relatedCode">{guide.code}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </main>
         </div>
       </div>
     </section>
