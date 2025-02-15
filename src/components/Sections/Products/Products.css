@@ -8,7 +8,7 @@
     padding: 80px 0;
 }
 
-.guideBackground {
+.guide-background {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 1) 100%);
@@ -38,7 +38,7 @@
     top: 20px;
 }
 
-.navTitle {
+.nav-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -46,13 +46,13 @@
     color: #22C55E;
 }
 
-.navList {
+.nav-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.navItem {
+.nav-item {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -67,17 +67,17 @@
     cursor: pointer;
 }
 
-.navItem:hover {
+.nav-item:hover {
     background: rgba(34, 197, 94, 0.1);
     color: #22C55E;
 }
 
-.navItemActive {
+.nav-item-active {
     background: rgba(34, 197, 94, 0.1);
     color: #22C55E;
 }
 
-.navIcon {
+.nav-icon {
     width: 16px;
     height: 16px;
 }
@@ -101,147 +101,128 @@
     margin-bottom: 48px;
 }
 
+/* Текстовый контент */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.text-content p {
+    margin-bottom: 16px;
+    max-width: 800px;
+}
+
+.text-content ul {
+    list-style-type: none;
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+
+.text-content ul li {
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.text-content ul li::before {
+    content: "•";
+    color: #22C55E;
+    position: absolute;
+    left: -20px;
+    top: 0;
+}
+
+.subsection {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.subsection-title {
+    color: #22C55E;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.subsection-content {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Подсветка важного текста */
+.text-content strong,
+.text-content b {
+    color: #22C55E;
+    font-weight: 600;
+}
+
+/* Заголовки в тексте */
+.text-content h3 {
+    color: #22C55E;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.text-content h4 {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+/* Код и технические термины */
+.text-content code {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* Предупреждения и заметки */
+.text-content .warning {
+    background: rgba(234, 179, 8, 0.1);
+    border-left: 4px solid #EAB308;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.text-content .note {
+    background: rgba(34, 197, 94, 0.1);
+    border-left: 4px solid #22C55E;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+}
+
 /* Динамические секции */
-.dynamicSections .section {
+.dynamic-sections .section {
     display: none;
 }
 
-.dynamicSections .sectionActive {
+.dynamic-sections .section-active {
     display: block;
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Статические секции */
-.staticSection {
-    display: block !important;
-    margin-top: 48px;
-    padding-top: 48px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sectionTitle {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #22C55E;
-    margin-bottom: 24px;
-}
-
-/* Версия */
-.versionInfo {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    padding: 24px;
-}
-
-.versionHeader {
-    margin-bottom: 16px;
-}
-
-.versionHeader h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
-    color: #22C55E;
-}
-
-.versionDescription {
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    margin-bottom: 24px;
-}
-
-.versionHighlights {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Список функций */
-.featureList {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.featureItem {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.featureItem:hover {
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.featureBullet {
-    color: #22C55E;
-    font-size: 18px;
-}
-
-/* Форматы */
-.formatInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.formatSection {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    padding: 20px;
-}
-
-.formatTitle {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    color: #22C55E;
-    margin-bottom: 16px;
-}
-
-.formatList {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-/* Улучшения системы */
-.systemImprovements {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-}
-
-.improvementCategory {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    padding: 20px;
-}
-
-.categoryTitle {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    color: #22C55E;
-    margin-bottom: 16px;
-}
-
-.improvementList {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
 /* Карточки загрузок */
-.downloadList {
+.download-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.downloadCard {
+.download-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -251,34 +232,34 @@
     transition: all 0.3s ease;
 }
 
-.downloadCard:hover {
+.download-card:hover {
     background: rgba(255, 255, 255, 0.08);
     transform: translateY(-2px);
 }
 
-.downloadInfo {
+.download-info {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-.downloadIcon {
+.download-icon {
     color: #22C55E;
     width: 24px;
     height: 24px;
 }
 
-.downloadFilename {
+.download-filename {
     font-weight: 500;
     margin-bottom: 4px;
 }
 
-.downloadMeta {
+.download-meta {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.6);
 }
 
-.downloadButton {
+.download-button {
     background: rgba(34, 197, 94, 0.1);
     color: #22C55E;
     border: none;
@@ -288,53 +269,72 @@
     transition: all 0.3s ease;
 }
 
-.downloadButton:hover {
+.download-button:hover {
     background: rgba(34, 197, 94, 0.2);
 }
 
-.buttonIcon {
+.button-icon {
     width: 20px;
     height: 20px;
 }
 
-/* Сетка связанных руководств */
-.relatedGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.relatedCard {
-    background: rgba(255, 255, 255, 0.05);
+.image-container {
+    margin: 24px 0;
     border-radius: 12px;
-    padding: 24px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.section-image,
+.subsection-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
     transition: all 0.3s ease;
-    cursor: pointer;
+    object-fit: contain;
 }
 
-.relatedCard:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px);
+.section-image:hover,
+.subsection-image:hover {
+    transform: scale(1.02);
 }
 
-.relatedTitle {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
+/* Media queries for responsive images */
+@media (max-width: 1024px) {
+    .image-container {
+        margin: 20px 0;
+        max-width: 100%;
+    }
+
+    .section-image,
+    .subsection-image {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
 }
 
-.relatedDesc {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 16px;
-    line-height: 1.5;
+@media (max-width: 768px) {
+    .image-container {
+        margin: 16px 0;
+    }
+
+    .section-image,
+    .subsection-image {
+        width: 100%;
+    }
 }
 
-.relatedCode {
-    font-size: 12px;
-    color: #22C55E;
-    font-weight: 600;
+@media (max-width: 480px) {
+    .image-container {
+        margin: 12px 0;
+    }
+
+    .section-image,
+    .subsection-image {
+        width: 100%;
+    }
 }
 
 /* Анимации */
@@ -371,7 +371,7 @@
         font-size: 28px;
     }
 
-    .sectionTitle {
+    .section-title {
         font-size: 20px;
     }
 
@@ -379,30 +379,22 @@
         padding: 20px;
     }
 
-    .downloadCard {
+    .download-card {
         flex-direction: column;
         gap: 16px;
         text-align: center;
     }
 
-    .downloadInfo {
+    .download-info {
         flex-direction: column;
         align-items: center;
     }
 
-    .downloadButton {
+    .download-button {
         width: 100%;
         display: flex;
         justify-content: center;
         padding: 12px;
-    }
-
-    .relatedGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .systemImprovements {
-        grid-template-columns: 1fr;
     }
 }
 
@@ -419,16 +411,15 @@
         font-size: 24px;
     }
 
-    .featureItem {
-        padding: 12px;
-    }
-
-    .navItem {
+    .nav-item {
         padding: 8px 12px;
     }
 
-    .formatSection,
-    .improvementCategory {
+    .text-content {
+        font-size: 15px;
+    }
+
+    .subsection {
         padding: 16px;
     }
 }
