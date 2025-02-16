@@ -1,18 +1,22 @@
 import { X } from "lucide-react";
+import PropTypes from "prop-types";
 import "./PartnershipModal.css";
 
-const PartnershipModal = ({ isOpen, onClose }) => {
+const PartnershipModal = ({ isOpen = false, onClose }) => {
   if (!isOpen) return null;
 
   return (
     <div className={`partnership-modal-overlay ${isOpen ? "active" : ""}`}>
       <div className={`partnership-modal-content ${isOpen ? "active" : ""}`}>
-        <button className="partnership-modal-close" onClick={onClose}>
+        <button
+          className="partnership-modal-close"
+          onClick={onClose}
+          aria-label="Close modal"
+        >
           <X size={24} />
         </button>
 
         <h2 className="partnership-modal-title">Partnership with R36S</h2>
-
         <h2 className="partnership-modal-title">COMPANY INFORMATION</h2>
 
         <div className="partnership-section">
@@ -155,6 +159,11 @@ const PartnershipModal = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
+};
+
+PartnershipModal.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default PartnershipModal;
